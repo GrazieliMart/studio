@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.cdnfonts.com/css/futura-pt" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <link rel="shortcut icon" href="../assets/navbar/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/project.css">
+    <title>Projects into Reality - Studio Forja</title>
+    <style>
+        /* Estilos existentes do código... */
+        body {
+            font-family: 'Futura PT', sans-serif;
+            padding: 0px;
+            overflow-x: hidden;
+            margin: 0;
+            text-align: center;
+            background-color: #ffffff;
+            scroll-behavior: smooth;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animação de abertura suave */
+        #map-container {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            width: 100%;
+            margin-bottom: 50px;
+            height: auto;
+            object-fit: cover;
+        }
+
+        /* Estilos dos pins */
+        .custom-pin {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(410%, -0%);
+            width: 20px;
+            height: 20px;
+            background-color: #ffbf00;
+            border: 2px solid #FFFFFF;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.089);
+            transition: transform 0.3s ease;
+        }
+        .custom-pin:hover{
+         
+            background-color: #000000;
+            cursor: pointer;
+         
+            transition: 0.2s;
+        }
+        .custom-pin:active{
+            background-color: #000000;
+        }
+
+        /* Estilos das informações dos pins */
+        .point-info {
+            position: absolute;
+            top: 20px;
+            right: -350px;
+            width: 400px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            transition: right 0.5s ease, opacity 0.5s ease;
+        }
+        .point-info h1{
+            font-weight: 200;
+        }
+        .point-info img {
+    width: 100%;
+    max-width: 350px;
+    margin-bottom: 10px;
+}
+        .point-info.show {
+            right: 200px;
+            opacity: 1;
+        }
+        .fixed-navbar-space {
+    padding-top: 150px;
+}
+@media (max-width: 768px) {
+    #map-container{
+        display: none;
+    }
+    #p-yellow{
+        display: none;
+    }
+    .btn-outline-secondary {
+    display: none;
+}
+.project-description{
+    display: none;
+}
+footer {
+        background-color: e9e9e9;
+        margin-top: 100px;
+    }
+
+}
+    </style>
+</head>
+
+<body>
+       <!-- NavBar -->
+       <div id="navbar-container"></div>
+       <script src="../js/navbar.js"></script>
+   
+    <div class="fixed-navbar-space"></div>
+
+    <div class="project-description">
+        <img src="../assets/navbar/logo-studio.png" alt="">
+        <h1 id="p-yellow">Explore our latest projects</h1> 
+        <hr>
+    </div>
+    
+    <div class="d-flex justify-content-center mb-4 zoom-sensitive-buttons">
+        <a href="how-it-works.html" class="btn btn-outline-secondary mr-2">How it Works</a>
+        <button class="btn btn-outline-secondary" onclick="toggleMap()">View Map</button>
+    </div>
+    
+    
+    <div id="map-container" style="margin-top: 20px; position: relative; display: none; opacity: 0; transition: opacity 0.5s;">
+        <img src="../assets/geral/map.png" alt="Mapa da Irlanda">
+        
+        <!-- Pins -->
+        
+        <div class="custom-pin" onclick="showPinInfo('pin2')" style="top: 230px; left: 1000px;"></div>
+        <div class="custom-pin" onclick="showPinInfo('pin3')" style="top: 250px; left: 980px;"></div>
+        <div class="custom-pin" onclick="showPinInfo('pin4')" style="top: 150px; left: 950px;"></div>
+     
+        <div class="custom-pin" onclick="showPinInfo('pin6')" style="top: 230px; left: 970px;"></div>
+    
+        <div class="custom-pin" onclick="showPinInfo('pin8')" style="top: 320px; left: 1100px;"></div>
+        <div class="custom-pin" onclick="showPinInfo('pin9')" style="top: 260px; left: 970px;"></div>
+        <div class="custom-pin" onclick="showPinInfo('pin10')" ></div>
+
+        <!-- Divs de informação dos pins -->
+        <div id="pin1-info" class="point-info">
+            <img src="../assets/geral/projects (1).png" alt="New Location 1">
+            <h1>New Location 1</h1>
+            <button class="btn btn-outline-secondary" onclick="contactPage()">Contact Us</button>
+        </div>
+        <div id="pin2-info" class="point-info">
+            <img src="../assets/geral/projects (11).png" alt="New Location 2">
+            <h1>District Beavertown</h1>
+             <p></p><i class="bi bi-geo-alt-fill"></i>18 Eustace St, Temple Bar, Dublin 2, D02 WR53, Irlanda</p>
+             <button class="btn btn-outline-secondary" onclick="window.location.href='district.html'">Explore project</button>
+        </div>
+        <div id="pin3-info" class="point-info">
+            <img src="../assets/geral/projects (3).png" alt="New Location 3">
+            <h1>CHARLIES</h1>
+             <p></p><i class="bi bi-geo-alt-fill"></i>8 South Great George's Street, Dublin, Ireland 2</p>
+             <button class="btn btn-outline-secondary" onclick="window.location.href='charlie.html'">Explore project</button>
+        </div>
+        <div id="pin4-info" class="point-info">
+            <img src="../assets/geral/projects (4).png" alt="New Location 4">
+            <h1>BACK PAGE</h1>
+            <p>New facade, tables and benches!</p><i class="bi bi-geo-alt-fill"></i>199 Phibsborough Rd, Phibsborough, Dublin 7, D07 A0X2</p>
+            <button class="btn btn-outline-secondary" onclick="window.location.href='backpage.html'">Explore project</button>
+        </div>
+        <div id="pin5-info" class="point-info">
+            <img src="../assets/geral/projects (5).png" alt="New Location 5">
+            <h1>New Location 5</h1>
+            <button class="btn btn-outline-secondary" onclick="contactPage()">Contact Us</button>
+        </div>
+        <div id="pin6-info" class="point-info">
+            <img src="../assets/geral/projects (6).png" alt="New Location 6">
+            <h1>ACHARA</h1>
+            <p>Restaurant complete ambience design</p>
+             <p></p><i class="bi bi-geo-alt-fill"></i>14-18, Aston Quay, Temple Bar, Dublin, D02 FV38</p>
+             <button class="btn btn-outline-secondary" onclick="window.location.href='achara.html'">Explore project</button>
+        </div>
+      
+        <div id="pin8-info" class="point-info">
+            <img src="../assets/geral/projects (8).png" alt="New Location 8">
+            <h1>JUNIORS</h1>
+            <p>Restaurant, Tables and Benches! Complete ambience design</p>
+             <p></p><i class="bi bi-geo-alt-fill"></i>2 Bath Ave, Dublin 4, Irelanda</p>
+             <button class="btn btn-outline-secondary" onclick="window.location.href='juniors.html'">Explore project</button>
+        </div>
+        <div id="pin9-info" class="point-info">
+            <img src="../assets/geral/projects (9).png" alt="New Location 9">
+            <h1>HANDSOME BURGUER</h1>
+            <p>Tables, benches and more!</p>
+             <p></p><i class="bi bi-geo-alt-fill"></i>14-18, Aston Quay, Temple Bar, Dublin, D02 FV38</p>
+             <button class="btn btn-outline-secondary" onclick="window.location.href='achara.html'">Explore project</button>
+        </div>
+        <div id="pin10-info" class="point-info">
+            <img src="../assets/geral/projects (1).png" alt="LOOT Dublin">
+            <h1>LOOT Dublin</h1>
+            <p>Complete renovation of a Retail Shop</p>
+             <p></p><i class="bi bi-geo-alt-fill"></i>23 Drury St, Dublin 2, D02 YE26</p>
+             <button class="btn btn-outline-secondary" onclick="window.location.href='loot.html'">Explore project</button>
+
+        </div>
+    </div>
+
+    <script>
+        function toggleMap() {
+            const mapContainer = document.getElementById("map-container");
+            mapContainer.style.display = mapContainer.style.display === "none" ? "block" : "none";
+            setTimeout(() => {
+                mapContainer.style.opacity = mapContainer.style.display === "block" ? 1 : 0;
+            }, 10);
+        }
+
+        function showPinInfo(pinId) {
+            document.querySelectorAll('.point-info').forEach(div => {
+                div.classList.remove('show');
+            });
+            const pinInfo = document.getElementById(`${pinId}-info`);
+            if (pinInfo) {
+                pinInfo.classList.add('show');
+            }
+        }
+
+        function contactPage() {
+            window.location.href = "contact.html";
+        }
+    </script>
+      <div class="other-project-gallery">
+        <div class="other-project-item">
+            <a href="achara.html"><img src="../assets/geral/projects (6).png" alt="Other Project Image 1"></a>
+            <p><a href="restaurants.html" id="black-span">Restaurants</a>
+                <span class="dot"></span>Achara Dublin</p>
+            <h2>Elegance and comfort side by side, with carefully designed elements.</h2>
+            <hr>
+        </div>
+        <div class="other-project-item">
+            <a href="charlie.html"><img src="../assets/geral/projects (3).png" alt="Other Project Image 2"></a>
+            <p><a href="restaurants.html" id="black-span">Restaurants</a>
+                <span class="dot"></span>Charlie's Restaurant</p>
+            <h2>Colorful, revitalized and detailed: Charlies is a project with excellent detail results.</h2>
+            <hr>
+        </div>
+    </div>
+
+    <div class="other-project-gallery">
+        <div class="other-project-item">
+            <a href="loot.html"><img src="../assets/geral/projects (1).png" alt="Other Project Image 1"></a>
+            <p><a href="retail.html" id="black-span">Retail</a>
+                <span class="dot"></span>LOOT Dublin</p>
+            <h2>Complete retail shop</h2>
+            <hr>
+        </div>
+        <div class="other-project-item">
+            <a href="district.html"><img src="../assets/geral/projects (11).png" alt="Other Project Image 2"></a>
+            <p><a href="design-project.html" id="black-span">Interior Design</a>
+                <span class="dot"></span>District</p>
+            <h2>Creative. Colorful. And impress!</h2>
+            <hr>
+        </div>
+    </div>
+
+    <div class="other-project-gallery">
+        <div class="other-project-item">
+            <a href="enscape.html"><img src="../assets/geral/projects (12).png" alt="Other Project Image 2"></a>
+            <p><a href="design-project.html" id="black-span">Interior Design</a>
+                <span class="dot"></span>Enscape</p>
+            <h2>Internal ambience designed for ellegance and confort.</h2>
+            <hr>
+        </div>
+        <div class="other-project-item">
+            <a href="axis.html"><img src="../assets/geral/projects (5).png" alt="Other Project Image 1"></a>
+            <p><a href="interior-design.html" id="black-span">Interior Design</a>
+                <span class="dot"></span>Axis</p>
+            <h2>A stunning reception area and office for the Axis community center.</h2>
+            <hr>
+        </div>
+    </div>
+
+    <div class="other-project-gallery">
+        <!--<div class="other-project-item">
+            <a href="handsome.html"><img src="../assets/geral/projects (9).png" alt="Other Project Image 2"></a>
+            <p><a href="restaurants.html" id="black-span">Restaurants</a>
+                <span class="dot"></span>HandSome Burger</p>
+            <h2>Elegant design project balancing comfort with aesthetic appeal.</h2>
+            <hr>
+        </div>-->
+        <div class="other-project-item">
+            <a href="juniors.html"><img src="../assets/geral/projects (8).png" alt="Other Project Image 2"></a>
+            <p><a href="restaurants.html" id="black-span">Restaurants</a>
+                <span class="dot"></span>Juniors</p>
+            <h2>Relaxed atmosphere designed for enjoying your culinary experience.</h2>
+            <hr>
+        </div>
+        <div class="other-project-item">
+            <a href="backpage.html"><img src="../assets/geral/projects (4).png" alt="Other Project Image 1"></a>
+            <p><a href="interior-design.html" id="black-span">Interior Design</a>
+                <span class="dot"></span>BackPage</p>
+            <h2>Rebuilt with brightening windows and a modern, spacious ambiance.</h2>
+            <hr>
+        </div>
+    </div>
+
+    <div class="other-project-gallery">
+        <!--<div class="other-project-item">
+            <a href="olivez.html"><img src="../assets/geral/projects (7).png" alt="Other Project Image 1"></a>
+            <p><a href="restaurants.html" id="black-span">Restaurants</a>
+                <span class="dot"></span>Olivez</p>
+            <h2>Exquisite atmosphere for culinary delights with a twist of authenticity.</h2>
+            <hr>
+        </div>-->
+       
+    </div>
+        <script>
+            function checkZoomLevel() {
+                const buttonContainer = document.querySelector('.zoom-sensitive-buttons');
+        
+                // Verifica o nível de zoom comparando window.innerWidth com screen.width
+                const zoomRatio = window.innerWidth / window.screen.width;
+                
+                // Ajuste a condição conforme necessário (0.98 e 1.02 permitem uma pequena margem de erro)
+                const isZoom100 = zoomRatio > 0.98 && zoomRatio < 1.02;
+        
+                // Exibe ou oculta a div com base no nível de zoom
+                if (isZoom100) {
+                    buttonContainer.style.display = 'flex';
+                } else {
+                    buttonContainer.style.display = 'none';
+                }
+            }
+        
+            // Verifica o zoom ao carregar a página e ao redimensionar a janela
+            window.addEventListener('load', checkZoomLevel);
+            window.addEventListener('resize', checkZoomLevel);
+        </script>
+        
+    
+    
+<!--Footer-->
+<div id="footer-container"></div>
+<script src="../js/footer.js"></script>
+
+</body>
+</html>

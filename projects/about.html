@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.cdnfonts.com/css/futura-pt" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+
+    <link rel="shortcut icon" href="../assets/navbar/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/body.css">
+    <title>Projects into Reality - Studio Forja</title>
+<style>
+    body{
+        overflow-x: hidden;
+    }
+.image-container {
+    opacity: 0; /* Initially hidden */
+    transform: translateY(50px); /* Starts slightly below */
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.image-container.visible {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Moves up to original position */
+}
+
+.image-container2, .image-container1 {
+    position: relative;
+    margin-top: 5%;
+    display: flex;
+    justify-self: center;
+    width: 70%;
+}
+
+.image-container2 button {
+    color: #ffffff;
+    border: 1px solid #fff;
+}
+
+.image-container2 button:hover {
+    text-decoration: underline;
+    color: #f1c638;
+}
+.image-container2{
+    margin-top: 20%;
+}
+.text-overlay, .text-overlay2 {
+    position: absolute;
+    top: 80%;
+    left: 40%;
+    padding: 40px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    width: 60%;
+    text-align: left;
+}
+.text-overlay, .text-overlay2 h2{
+    font-size: 4rem;
+}
+.text-overlay, .text-overlay2 p {
+    font-size: 25px;
+}
+.text-overlay
+.main-image {
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .text-overlay, .text-overlay2 h2{
+    font-size: 2rem;
+}
+.text-overlay, .text-overlay2 p {
+    font-size: 15px;
+}
+    .image-container2, .image-container1 {
+    position: relative;
+    margin-top: 5%;
+    display: flex;
+    justify-self: center;
+    width: 100%;
+}
+    .image-container img {
+        width: 100%;
+        height: 300px;
+        object-fit: contain;
+    }
+    .main-image {
+    width: 100%;
+    height: 700px;
+    object-fit: contain;
+}
+    .image-container2{
+        margin-top: 0%;
+    }
+    footer {
+        border-top: 15px solid #ffc107;
+        background-color: e9e9e9;
+        margin-top: 150px;
+    }
+    .text-overlay, .text-overlay2 {
+        position: absolute;
+        top: 80%;
+        left: 0%;
+        padding: 40px;
+        background-color: rgb(255 255 255);
+        color: #5a5a5a;
+        width: 100%;
+        text-align: left;
+    }
+    #bruna{
+        margin-top: 140px;
+    }
+}
+
+</style>
+</head>
+<body>
+<div id="navbar-container"></div>
+<div id="overlay"></div>
+<script src="../js/navbar.js"></script>
+
+<div class="fixed-navbar-space"></div>
+
+<hr>
+<div class="titulo-template" id="top">
+    <h1>ABOUT OUR TEAM</h1>
+    <p>STUDIO FORJA</p>
+</div>
+<hr>
+
+<div class="image-container">
+    <img src="../assets/geral/about.png" alt="Imagem 2" class="img-fluid">
+</div>
+
+<div class="project-description">
+    <h1>Who we are?</h1>
+    <p>We are a creative design studio specialized in transforming ideas into reality. We offer design solutions that go beyond aesthetics, focusing on functionality and the visual impact of spaces. Each project is developed with a personalized and detailed approach, from concept to 3D modeling and advanced rendering, allowing our clients to visualize the final result with realism and precision.</p>
+    <p>Our commitment is to bring each client’s vision to life, integrating technology and creativity to create environments that are both inspiring and practical. </p>
+</div>
+
+<div class="image-container image-container1">
+    <div class="text-overlay">
+        <h2>Caio Pazini.</h2>
+        <p>Caio Pazini is the founder of Studio Forja. A visionary and design enthusiast, Caio created these companies with the goal of uniting creativity and execution under one roof. While Studio Forja is dedicated to developing complete 3D design projects and visualizations, Forja Works is responsible for bringing each project to life, from concept to completion. </p>
+    </div>
+    <img src="../assets/geral/team (4).png" alt="Your Image Description" class="main-image">
+</div>
+
+<div class="image-container image-container2">
+    <div class="text-overlay2">
+        <h2>Bruna Martinez.</h2>
+        <p>Designer and responsible for architectural project creation, bringing a detailed and innovative vision to every space.</p>
+    </div>
+    <img src="../assets/geral/team (1).png" alt="Your Image Description" class="main-image" id="bruna">
+</div>
+
+<div class="image-container image-container1">
+    <div class="text-overlay">
+        <h2>Guilherme Amaral.</h2>
+        <p>Product Manager, overseeing the creation and management of projects to ensure each stage is executed with efficiency and quality. </p>
+    </div>
+    <img src="../assets/geral/team (2).png" alt="Your Image Description" class="main-image">
+</div>
+
+<div class="image-container image-container2">
+    <div class="text-overlay2">
+        <h2>Matheus.</h2>
+        <p>Architect and product designer, specializing in merging functionality and aesthetics into unique design solutions.</p>
+    </div>
+    <img src="../assets/geral/team (3).png" alt="Your Image Description" class="main-image">
+</div>
+
+<div id="footer-container"></div>
+<script src="../js/footer.js"></script>
+
+<script>
+// Function to detect when an element is in the viewport
+function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+// Function to handle scroll animation
+function onScrollAnimation() {
+    const containers = document.querySelectorAll('.image-container');
+    containers.forEach(container => {
+        if (isElementInViewport(container)) {
+            container.classList.add('visible');
+        }
+    });
+}
+
+// Trigger the animation on scroll and on load
+window.addEventListener('scroll', onScrollAnimation);
+window.addEventListener('load', onScrollAnimation);
+</script>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

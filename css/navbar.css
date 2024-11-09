@@ -1,0 +1,543 @@
+body {
+    margin: 0;
+    font-family: 'Futura PT', sans-serif; /* Aplica a fonte Futura PT ao corpo */
+}
+/* Estilos para a barra de rolagem */
+::-webkit-scrollbar {
+    width: 15px; /* largura da barra de rolagem */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; /* cor do fundo da barra */
+    border-radius: 10px; /* borda arredondada do fundo */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #000000; /* cor da barra de rolagem */
+    border-radius: 10px; /* borda arredondada da barra */
+    border: 3px solid #f1f1f1; /* espaço ao redor da barra */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #000; /* cor ao passar o mouse */
+  }
+  
+.faixa-informativa, .navbar {
+transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Classe para exibir a navbar */
+.show-navbar {
+transform: translateY(0);
+opacity: 1;
+position: fixed;
+top: 0;
+width: 100%;
+}
+
+/* Classe para ocultar a navbar */
+.hide-navbar {
+transform: translateY(-100%);
+opacity: 0;
+}
+
+#overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100vh;
+background-color: rgba(0, 0, 0, 0.849);
+z-index: 5; /* Deve ser menor que o da navbar */
+opacity: 0;
+visibility: hidden;
+transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+/* Estilo para exibir a overlay */
+#overlay.visible {
+    display: flex;
+z-index: 5;
+visibility: visible;
+opacity: 1;
+}
+
+.navbar {
+position: relative;
+z-index: 20; /* Z-index da navbar está correto */
+display: flex;
+align-items: center;
+justify-content: space-around;
+padding: 10px 20px;
+background-color: #ffffff; /* Cor padrão */
+}
+
+/* Se o dropdown tiver um z-index menor que a navbar, ele não sobreporá */
+.dropdown-content {
+display: none;
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+position: absolute;
+top: 110%;
+padding: 50px;
+background-color: #000000;
+z-index: 15; /* Z-index menor que a navbar */
+}
+
+.navbar {
+z-index: 20; /* Z-index da navbar */
+display: flex;
+align-items: center;
+justify-content: space-around;
+padding: 10px 20px;
+background-color: #ffffff; /* Cor padrão */
+z-index: 10;
+}
+
+.dropdown:hover .navbar,
+.dropdown:hover .navbar {
+background-color: #000000; /* Cor preta ao passar o mouse sobre o dropdown */
+}
+
+/* Estilo dos links da navbar */
+.navbar a {
+color: black; /* Cor do texto padrão */
+transition: color 0.3s; /* Transição suave para a cor do texto */
+}
+
+
+/* Estilo dos links da navbar */
+.navbar a {
+color: black; /* Cor do texto padrão */
+transition: color 0.3s; /* Transição suave para a cor do texto */
+}
+
+/* Efeito ao passar o mouse sobre o dropdown */
+.dropdown:hover .navbar img {
+filter: brightness(0) invert(1); /* Inverte as cores da imagem */
+}
+
+.dropdown:hover .social-icons a {
+color: white; /* Ícones sociais brancos */
+}
+
+.dropdown:hover .nav-button {
+background-color: white; /* Botão branco */
+color: black; /* Texto do botão preto para contraste */
+}
+
+.dropdown:hover .navbar a {
+color: white; /* Cor do texto branca ao passar o mouse sobre o dropdown */
+}
+
+.dropdown:hover .dropdown-content {
+display: flex; /* Exibe o dropdown */
+}
+
+.dropdown:hover .nav-button {
+background-color: white; /* Botão branco */
+color: black; /* Texto do botão preto para contraste */
+}
+.dropdown:hover .navbar a {
+color: white; /* Cor do texto branca ao passar o mouse sobre o dropdown */
+}
+.navbar.hovered {
+background-color: #000000; /* Cor preta quando a classe 'hovered' é aplicada */
+}
+
+.navbar.hovered a {
+color: white; /* Mudar a cor do texto para branco quando a classe 'hovered' é aplicada */
+}
+.navbar.hovered .social-icons a i{
+color: #fff;
+}
+.navbar.hovered .nav-button{
+border:1px solid #fff;
+color: #fff;
+}
+.navbar.hovered .logo img{
+filter: brightness(0) invert(1); /* Inverte as cores da imagem */
+}
+
+
+.logo img {
+    height: 50px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+}
+
+.nav-links li a {
+    color: black;
+    text-decoration: none;
+    font-size: 12px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links li a:hover { 
+    transition: 0.2s;
+    color: rgb(177, 177, 177);
+}
+
+.hamburger {
+    display: none;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.hamburger.rotate {
+    transform: rotate(360deg); /* Rotaciona 360 graus */
+}
+
+.nav-button {
+    padding: 10px;
+    z-index: 20;
+    background-color: #00000000;
+    border-radius: 0px;
+    color: #040404;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 20px;
+    border: 1px solid #000000;
+    font-weight: 100;
+    transition: 0.2s;
+}
+
+.nav-button:hover {
+    background-color: #000000;
+    color: #fff;
+    cursor: pointer;
+    border: #fff;
+    transition: 0.2s;
+}
+
+
+/* Estilos para o dropdown */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+display: none;
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+position: absolute;
+top: 110%;
+left: -600px;
+      padding: 50px;
+background-color: #000000;
+z-index: 10;
+}
+.dropdown:hover .dropdown-content,
+.dropdown-content.active {
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+display: flex; /* Exibe quando ativo */
+opacity: 1; /* Faz o dropdown aparecer */
+transform: translateY(0); /* Retorna ao lugar */
+}
+.dropdown-right{
+text-align: left;
+}
+.dropdown-left, .dropdown-right{
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+}
+.dropdown-left .item1 {
+transition: 0.2s;
+width: 100%;
+background-color: #292626;
+padding: 80px 0px 80px;
+
+}
+.dropdown-left .item2 {
+
+transition: 0.2s;
+width: 100%;
+background-color: #686868;
+padding: 80px 0px 80px;
+
+}
+.dropdown-left .item3 {
+transition: 0.2s;
+width: 100%;
+background-color: #292626;
+padding: 80px 0px 80px;
+
+}
+.dropdown-left .item4 {
+transition: 0.2s;
+width: 100%;
+background-color: #686868;
+padding: 80px 0px 80px;
+
+}
+
+.image-overlay h1{
+font-size: 55px;
+}
+
+
+.dropdown:hover .dropdown-content {
+    display: flex;
+}
+
+.dropdown-content div {
+    padding: 10px;
+    color: rgb(209, 209, 209); /* Cor do texto */
+         }
+
+.dropdown-content div:last-child {
+    border-bottom: none; /* Remove a borda do último item */
+}
+.dropdown:hover .dropdown-content {
+    display: flex;
+}
+
+.dropdown-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-left div {
+    position: relative; /* Para permitir a imagem de fundo */
+    padding: 10px;
+    height: 50px; /* Altura do item */
+    width: 150px; /* Largura do item */
+    color: white;
+    border-radius: 0px;
+    display: flex; /* Para centralizar o texto */
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    overflow: hidden; /* Para esconder qualquer conteúdo que ultrapasse os limites */
+}
+
+/* Overlay preta */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+}
+.overlay.visible{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+    display: flex;
+}
+
+.dropdown:hover .dropdown-content {
+    border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+display: flex; /* Exibe quando ativo */
+opacity: 1; /* Faz o dropdown aparecer */
+transform: translateY(0); /* Retorna ao lugar */
+}
+
+/* Estilos dos itens dentro do dropdown */
+.dropdown-content div {
+padding: 10px;
+color: black; /* Cor do texto */
+cursor: pointer; /* Muda o cursor para indicar que é clicável */
+transition: background-color 0.3s; /* drop suave para fundo */
+}
+
+.dropdown-content div:hover {
+background-color: #000000; /* Fundo ao passar o mouse */
+}
+.dropdown-right img{
+    width: 600px;
+}
+
+
+.faixa-informativa {
+    position: relative;
+
+    z-index: 20;
+    font-weight: 100;
+    text-align: center;
+    padding: 10px;
+    letter-spacing: 2px;
+    color: #fff;
+    font-size: 10px;
+    background-color: #000000;
+    transition: 0.2s;
+}
+.faixa-informativa a{
+    color: #fff;
+}
+
+.faixa-informativa:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.social-icons {
+    float: right;
+    margin-right: 70px;
+    padding-top: 10px;
+}
+
+.social-icons a {
+    display: inline-block;
+    color: #ffffff;
+    text-align: center;
+    padding: 14px 2px;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.social-icons a i {
+    background-color: #ffde0400;
+    color: #000000;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 12px;
+    margin: 0 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+.social-icons a i:hover{
+    color: #b9b9b9;
+    transition: 0.2s;
+}
+
+.dropdown-content div {
+padding: 10px;
+width: 800px;
+color: rgb(218, 218, 218); /* Cor do texto */
+background-size: cover;
+background-position: center;
+transition: background-image 0.3s ease; /* Transição suave para a imagem de fundo */
+}
+.dropdown-right p{
+font-size: 20px;
+}
+.dropdown-right #project-p{
+color: gold;
+}
+
+/* Imagens de fundo dos itens com hover */
+.dropdown-content div.item1:hover {
+font-weight:  normal;
+text-decoration: underline;
+color: #fff;
+cursor: pointer;
+transition: 0.2s;
+background-image: url('../assets/navbar/nav-item-nav.png');
+}
+
+.dropdown-content div.item2:hover {
+font-weight:  normal;
+text-decoration: underline;
+color: #fff;
+cursor: pointer;
+transition: 0.2s;
+background-image: url('../assets/navbar/nav-itens.png');
+}
+
+.dropdown-content div.item3:hover {
+font-weight:  normal;
+text-decoration: underline;
+color: #fff;
+cursor: pointer;
+transition: 0.2s;
+background-image: url('../assets/navbar/nav-item.png');
+}
+
+.dropdown-content div.item4:hover {
+font-weight:  normal;
+text-decoration: underline;
+color: #fff;
+cursor: pointer;
+transition: 0.2s;
+background-image: url('../assets/navbar/nav-itens-nav.png');
+}
+nav .nav-button{
+    display: flex;
+}
+/* Responsividade */
+@media (max-width: 768px) {
+    nav .nav-button{
+        display: none;
+    }
+    
+    .logo img {
+        
+        height: 60px;
+        margin-left: 50px;
+    }
+   
+    .navbar {
+        justify-content: space-between;
+    }
+    .dropdown-content{
+        display: none;
+    }
+    .nav-links {
+        flex-direction: column;
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        top: 90%;
+        text-align: left;
+        right: 0;
+        width: 300px;
+        background-color: #ffffff;
+        gap: 30px;
+        height: 100vh;
+        font-size: 10px;
+        padding: 10px;
+        transform: translateX(100%);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        z-index: 2;
+    }
+
+    .nav-links.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .nav-links.closing {
+        opacity: 0;
+        transform: translateX(100%);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .hamburger {
+        position: fixed;
+        text-align: right;
+        display: block;
+        justify-content: center;
+        float: right;
+        /* right: -100px; */
+    }
+    .dropdown-content{
+        display: none;
+    }
+    .dropdown:hover .dropdown-content{
+        display: none;
+    }
+    .social-icons {
+        display: none;
+    }
+}

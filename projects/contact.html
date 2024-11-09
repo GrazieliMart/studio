@@ -1,0 +1,110 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.cdnfonts.com/css/futura-pt" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="shortcut icon" href="../assets/navbar/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/body.css">
+    <link rel="stylesheet" href="../css/contact.css">
+    <title>Projects into Reality - Studio Forja</title>
+    <style>     
+     
+    </style>
+</head>
+
+<!-- NavBar Link -->
+<div id="navbar-container"></div>
+<div id="overlay"></div> <!-- Adiciona a overlay -->
+<script src="../js/navbar.js"></script>
+
+<body>
+    <!-- Tela de Carregamento -->
+    <div id="loading-screen">
+        <div class="loader">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Div Esquerda: Formulário -->
+        <div class="form-section">
+            <!-- Conteúdo fixo da seção align-contact -->
+            <div class="align-contact">
+                <img src="../assets/navbar/logo-studio.png" alt="">
+                <h1>Let's transform your <span>project</span> <br>into reality!</h1>
+                <p>Contact us by filling a few questions below to begin your project idea. </p>
+                <br>
+               
+                <br><br>
+            </div>
+
+            <!-- Formulário com as perguntas -->
+            <form action="/submit_form" method="POST">
+                <div class="question-page active" id="question1">
+                    <div class="question">What's the name of your company?</div>
+                    <input type="text" name="nome" class="form-control" placeholder="Your company name" required>
+                    <button type="button" class="btn" onclick="nextQuestion()">Next</button>
+                </div>
+
+                <div class="question-page" id="question2">
+                    <div class="question">What's your name?</div>
+                    <input type="text" name="idade" class="form-control" placeholder="Your name" required>
+                    <button type="button" class="btn" onclick="nextQuestion()">Next</button>
+                </div>
+
+                <div class="question-page" id="question3">
+                    <div class="question">Insert an e-mail to contact</div>
+                    <input type="email" name="email" class="form-control" placeholder="Your e-mail" required>
+                    <button type="button" class="btn" onclick="nextQuestion()">Next</button>
+                </div>
+                
+                <div class="question-page" id="question4">
+                    <div class="question">Talk about your idea/project</div>
+                    <input type="text" name="about" class="form-control" placeholder="Write here" required>
+                    <button type="submit" class="btn">Submit</button>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- Div Direita: Imagem -->
+        <div class="image-section">
+            <img src="../assets/geral/contact-image.png" alt="Imagem de Contato">
+        </div>
+    </div>
+
+    <script>
+        // Oculta a tela de carregamento após 1 segundo
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                document.getElementById("loading-screen").classList.add("hidden");
+            }, 1000); // 1 segundo para o carregamento
+        });
+
+        // Controle de perguntas
+        let currentQuestion = 1;
+        function nextQuestion() {
+            document.getElementById(`question${currentQuestion}`).classList.remove("active");
+            currentQuestion++;
+            const nextPage = document.getElementById(`question${currentQuestion}`);
+            if (nextPage) {
+                nextPage.classList.add("active");
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

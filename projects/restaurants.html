@@ -1,0 +1,102 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.cdnfonts.com/css/futura-pt" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="shortcut icon" href="../assets/navbar/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/body.css">
+    <title>Projects into Reality - Studio Forja</title>
+
+</head>
+
+<!-- NavBar Link -->
+<div id="navbar-container"></div>
+<div id="overlay"></div> <!-- Adiciona a overlay -->
+<script src="../js/navbar.js"></script>
+
+
+<body>
+    <div class="fixed-navbar-space"></div>
+
+
+
+<div class="project-description">
+    <h1>A new ambience. A new Design.</h1>
+    <p>We understand that a restaurant is more than just a place to eat—it’s an experience. That’s why we focus on creating spaces that reflect your brand’s personality while enhancing the dining experience. Whether it's the layout, ambiance, lighting, furniture, or materials, we carefully craft each element to ensure your restaurant is not only functional but also visually captivating. 
+        <br>
+      
+   
+</div>
+<div class="image-container">
+    <img src="../assets/enscape/enscape (10).png" alt="Imagem 2" class="img-fluid">
+</div>
+<div class="project-description">
+    <h1>Specialize in designing</h1>
+    <p>Our team works closely with you to bring your vision to life, designing a space that will engage your customers, inspire conversation, and leave a lasting impression. Let us help you create the perfect environment for your restaurant to shine.</p>
+   
+</div>
+
+<div class="container">
+    <div class="div1"><img src="../assets/achara/achara-facade (1).png" alt=""></div>
+    <div class="div2"><img src="../assets/achara/achara-facade (2).png" alt=""></div>
+</div>
+
+ 
+<div class="image-container">
+    <img src="../assets/achara/achara (7).png" alt="Imagem 2" class="img-fluid">
+</div>
+
+<div class="image-container">
+    <img src="../assets/charlie/render-charlie (3).png" alt="Imagem 2" class="img-fluid">
+</div>
+<div class="image-container">
+    <img src="../assets/enscape/enscape (9).png" alt="Imagem 2" class="img-fluid">
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Animação ao rolar para baixo na div
+        const divs = document.querySelectorAll('.div1, .div2');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-up');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        divs.forEach(div => {
+            observer.observe(div);
+        });
+    });
+</script>
+
+
+
+<div class="image-container1">
+    <div class="text-overlay">
+        <h2>Have an idea in mind?</h2>
+        <p>Studio Forja is dedicated to making your vision a reality, one step at a time. Get in touch today and let's begin to explore the potential of your company.</p>
+        <a href="contact.html"><button class="nav-button">Let's Begin</button></a>
+    </div>
+    <img src="../assets/navbar/projects-div (3).png" alt="Your Image Description" class="main-image">
+</div>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<!--Footer-->
+<div id="footer-container"></div>
+<script src="../js/footer.js"></script>
+
+</body>
+</html>
+

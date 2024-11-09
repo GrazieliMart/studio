@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.cdnfonts.com/css/futura-pt" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="../assets/navbar/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/body.css">
+    <title>How it Works - Studio Forja</title>
+<style>
+  a {
+         color: #ffffff;
+    }
+    a:hover{
+        color: #fff;
+        text-decoration: none;
+    }
+    .project-description p{
+        font-size: 20px;
+    }
+    .sustainability-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20%;
+            gap: 30px; /* Espaçamento entre as divs */
+        }
+
+        .sustainability-box {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f1c638; /* Verde sustentável */
+    border-radius: 0px;
+    position: relative;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    opacity: 0; /* Começa invisível */
+    transform: translateY(50px); /* Inicia fora da posição visível */
+    transition: opacity 0.5s, transform 0.5s; /* Transição suave */
+}
+
+.sustainability-box.show {
+    opacity: 1; /* Torna-se visível */
+    transform: translateY(0); /* Retorna à posição original */
+}
+
+.sustainability-box.hide {
+    opacity: 0; /* Torna-se invisível */
+    transform: translateY(50px); /* Move-se para baixo ao rolar para cima */
+}
+
+
+        .sustainability-box i {
+            font-size: 50px; /* Tamanho do ícone */
+        }
+
+        .sustainability-box-text {
+    position: absolute;
+    bottom: none;
+    padding: 50px;
+    font-size: 16px;
+    color: white;
+}
+.sustainability-box-text p{
+    color: #ffffff;
+    font-size: 25px;
+}
+.sustainability-box-text h1:hover{
+    transition: 0.2s;
+    cursor: pointer;
+    border-bottom: 5px solid #fff;
+}
+
+
+        .sustainability-box-one {
+    margin-top: -20%;
+}
+
+        .sustainability-box-two {
+            margin-top: 30px; /* A segunda caixa fica mais para baixo */
+        }
+      .steps-text-overlay {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background: rgb(0, 0, 0);
+        color: white;
+        padding: 20px;
+        font-size: 18px;
+        box-sizing: border-box;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .steps-text-overlay.active {
+        opacity: 1;
+    }
+    .arrow {
+        cursor: pointer;
+        font-size: 24px;
+        padding: 10px;
+        color: #ffc107;
+    }
+    .arrow:hover {
+        color: #ffffff;
+    }
+    #stepText {
+        flex: 1;
+        text-align: center;
+    }
+    .image-container1 {
+
+position: relative;
+margin-top: 10%;
+display: flex;
+justify-self: center;
+width: 70%;
+}
+.image-container1 button{
+color: #ffffff;
+border: 1px solid #fff;
+}
+.image-container1 button:hover{
+text-decoration: underline;
+color: #f1c638;
+}
+.text-overlay {
+position: absolute;
+top: 70%;
+left: 5%;
+padding: 40px;
+background-color: rgb(0, 0, 0);
+color: white;
+width: 50%;
+text-align: left;
+}
+
+.main-image {
+width: 100%;
+height: 300px;
+object-fit: cover;
+}
+.align-step {
+    display: inline-block;
+    justify-self: center;
+    width: 100%;
+    align-content: center;
+    align-items: center;
+}
+.steps-sidebar {
+    width: 100%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    display: flex;
+    justify-content: normal;
+    flex-direction: column;
+    gap: 30px;
+}
+    .steps-item {
+        text-align: left;
+        padding: 15px;
+        background-color: #fff;
+        cursor: pointer;
+        border-radius: 4px;
+        
+    }
+    .steps-item:hover{
+        background-color: #ffc107;
+        color: #ffffff;
+    }
+    .steps-item.active {
+        color: #ffc107;
+        background-color: #000000;
+    }
+    .steps-content {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-top: -0%;
+}
+ 
+    .steps-bg-image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+}
+    .steps-bg-image.active {
+        opacity: 1;
+    }
+    .steps-text-overlay {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background: rgb(0, 0, 0);
+        color: white;
+        padding: 20px;
+        font-size: 18px;
+        box-sizing: border-box;
+        
+        
+    }
+    .steps-text-overlay.active {
+        opacity: 1;
+    }
+    .image-container {
+        margin-top: 100px;
+        position: relative;
+    }
+    .text-overlay-title {
+        position: absolute;
+        top: 35%;
+        line-height: 110px;
+        left: 15%;
+        width: 700px;
+        background-color: #ffffff00;
+        color: white;
+        font-size: 150px;
+        font-weight: bold;
+        text-align: left;
+        padding: 10px 20px;
+        border-radius: 8px;
+    }
+    .image-container img {
+        width: 100%;
+        height: 600px;
+    }
+    .image-container2, .image-container1 {
+        position: relative;
+        margin-top: 5%;
+        display: flex;
+        justify-self: center;
+        width: 70%;
+    }
+    .image-container2 button {
+        color: #ffffff;
+        border: 1px solid #fff;
+    }
+    .image-container2 button:hover {
+        text-decoration: underline;
+        color: #f1c638;
+    }
+    .steps-container {
+    height: 70%;
+    display: flex;
+
+    border: 1px solid #dddddd00;
+    overflow: hidden;
+    margin: 0px 300px 0px 300px;
+    border-radius: 0px;
+    left: 50%;
+}
+    @media (max-width: 768px) {
+        .image-container2, .image-container1 {
+            width: 100%;
+            display: none;
+        }
+        .image-container img {
+        height: 300px;
+        object-fit: cover;
+    }
+    .steps-content {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-top: -80%;
+}
+ 
+    .sustainability-container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40%;
+    gap: 30px;
+}
+footer {
+        background-color: e9e9e9;
+        margin-top: 40px;
+    }
+.sustainability-container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40%;
+    gap: 30px;
+} .sustainability-container  img{
+    width: 300px;
+}
+.sustainability-box{
+    background-color: #5a5a5a00;
+    height: 300px;
+    width: 300px;
+    color: #000;
+}
+.sustainability-box-text p {
+    color: #979797;
+    font-size: 20px;
+}
+.sustainability-box-text h1 {
+        border-bottom: 3px solid #000;
+        color: #000;
+        font-size: 24px;
+    }
+        .main-image {
+            height: 700px;
+            object-fit: contain;
+        }
+        .image-container2 {
+            margin-top: 0%;
+        }
+        footer {
+            border-top: 15px solid #ffc107;
+            background-color: e9e9e9;
+            margin-top: 150px;
+        }
+        .text-overlay, .text-overlay2 {
+            top: 80%;
+            padding: 40px;
+            background-color: rgb(255 255 255);
+            color: #5a5a5a;
+            width: 100%;
+        }
+        #bruna {
+            margin-top: 140px;
+        }
+        .text-overlay-title {width: 100%;
+    left: 0%;
+    font-size: 45px;
+   
+}
+.steps-bg-image {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-size: contain;
+        background-position: center;
+       
+        
+    }
+.steps-container {
+    height: 1200px;
+    display: grid;
+    width: 100%;
+    border: 1px solid #dddddd00;
+    overflow: hidden;
+    border-radius: 0px;
+    margin: 0px;
+}
+    }
+   
+       
+</style>
+</head>
+<body>
+<div id="navbar-container"></div>
+<div id="overlay"></div>
+<script src="../js/navbar.js"></script>
+
+<div class="image-container">
+    <img src="../assets/geral/how-it-works-image.png" alt="Imagem 2" class="img-fluid">
+    <div class="text-overlay-title">How it Works?</div>
+</div>
+<br><br><br>
+<div class="project-description">
+    <h1>At Studio Forja</h1>
+    <p>We believe in transforming concepts into reality through a structured and collaborative design process.</p>
+    <p>Our process is designed to turn your vision into reality through clear, structured stages.</p>
+</div>
+<br><br><br>
+<div class="align-step">
+<div class="steps-container">
+    <div class="steps-sidebar">
+        <div class="steps-item" onclick="showStep(0)">Step 1: Site Visit and Briefing</div>
+        <div class="steps-item" onclick="showStep(1)">Step 2: Concept Development</div>
+        <div class="steps-item" onclick="showStep(2)">Step 3: Design Development</div>
+        <div class="steps-item" onclick="showStep(3)">Step 4: Renderings</div>
+        <div class="steps-item" onclick="showStep(4)">Step 5: Technical Project</div>
+        <div class="steps-item" onclick="showStep(5)">Step 6: Execution Supervision</div>
+    </div>
+
+    <div class="steps-content">
+        <div class="steps-bg-image" id="stepsBgImage"></div>
+        <div class="steps-text-overlay" id="stepsTextOverlay">
+            <i class="bi bi-chevron-left arrow" onclick="navigateStep(-1)"></i> <!-- Setas de navegação -->
+            <div id="stepText"></div>
+            <i class="bi bi-chevron-right arrow" onclick="navigateStep(1)"></i> <!-- Setas de navegação -->
+        </div>
+    </div>
+    
+</div></div>
+
+<script>
+const steps = [
+    { img: "step1-img.png", text: "We begin by understanding your goals and the unique characteristics of your space through an in-depth briefing and on-site visit. This step ensures we’re aligned with your vision from the start." },
+    { img: "step2-img.png", text: "With the initial understanding in place, we dive into brainstorming and developing concepts that reflect your objectives, creating a foundation that balances creativity with functionality." },
+    { img: "step3-img.png", text: "Our team refines the chosen concepts and carefully selects materials to match the desired aesthetic, ensuring both quality and alignment with the project's goals." },
+    { img: "step4-img.png", text: "We produce detailed renderings that bring the project to life visually, allowing you to see how the design will look in its finished form." },
+    { img: "step5-img.png", text: "After approval, we create a complete technical project that includes every detail needed for the build, ensuring accuracy and a smooth execution." },
+    { img: "step6-img.png", text: "Our team supervises the execution phase closely, guaranteeing that every aspect is crafted to perfection. Quality and attention to detail are at the heart of our work." }
+];
+
+
+    let activeIndex = 0;
+
+    function showStep(index) {
+        activeIndex = index;
+        const stepsItems = document.querySelectorAll('.steps-item');
+        const stepsBgImage = document.getElementById('stepsBgImage');
+        const stepsTextOverlay = document.getElementById('stepsTextOverlay');
+        const stepText = document.getElementById('stepText');
+
+        stepsItems.forEach((item, idx) => {
+            item.classList.toggle('active', idx === index);
+        });
+
+        stepsBgImage.style.backgroundImage = `url(${steps[index].img})`;
+        stepsBgImage.classList.remove('active');
+        setTimeout(() => {
+            stepsBgImage.classList.add('active');
+        }, 10);
+
+        stepsTextOverlay.classList.remove('active');
+        setTimeout(() => {
+            stepText.textContent = steps[index].text;
+            stepsTextOverlay.classList.add('active');
+        }, 300);
+    }
+
+    function navigateStep(direction) {
+        activeIndex = (activeIndex + direction + steps.length) % steps.length;
+        showStep(activeIndex);
+    }
+   
+document.addEventListener("DOMContentLoaded", function() {
+    showStep(0); // Inicializa as imagens depois que o DOM é carregado
+});
+
+
+    showStep(0);
+</script>
+
+<script>document.addEventListener('scroll', function() {
+    const boxes = document.querySelectorAll('.sustainability-box');
+
+    boxes.forEach(box => {
+        const boxTop = box.getBoundingClientRect().top;
+        const boxBottom = box.getBoundingClientRect().bottom;
+        const windowHeight = window.innerHeight;
+
+        if (boxTop < windowHeight && boxBottom > 0) {
+            box.classList.add('show'); // Exibe quando entra na tela
+            box.classList.remove('hide');
+        } else {
+            box.classList.remove('show');
+            box.classList.add('hide'); // Oculta quando sai da tela
+        }
+    });
+});
+</script>
+<br><br><br><br><br><br>
+<div class="project-description">
+    <h1>Sustainability</h1>
+    <p>Studio Forja is deeply committed to sustainability and a greener future, consistently integrating environmentally conscious practices into our projects.</p>
+    <p>We believe that every choice matters, which is why we prioritize using recycled and sustainable materials, aligning our innovative design with solutions that respect the environment. Our approach reflects a desire to create a better and more responsible world for future generations.</p>
+</div>
+
+
+<div class="sustainability-container">
+    <div class="sustainability-box sustainability-box-one">
+      <img src="../assets/geral/sustainability-1.png" alt="">
+    </div>
+    <div class="sustainability-box sustainability-box-two">
+      
+        <div class="sustainability-box-text"><br><p>Know more about how we work! <br><br>Our PDF Design Project Guide helps you to discover how we bring your ideas to life and contribute to the circular economy.</p>
+      <br>   <a href="STUDIO-FORJA-DESIGN-GUIDE.pdf" download="STUDIO-FORJA-DESIGN-GUIDE">
+        <h1>DOWNLOAD NOW</h1>
+    </a></div>
+       
+    </div>
+</div>
+<div class="image-container">
+    <img src="../assets/geral/how-we-work-image-2.png" alt="Imagem 2" class="img-fluid">
+ 
+</div>
+<div class="project-description">
+    <p id="p-yellow">Eplore our Projects</p> 
+    <h1>Discover more about Studio Forja</h1>
+     
+    </div><br>
+
+
+<div class="other-project-gallery">
+    <div class="other-project-item">
+        <a href="charlie.html"><img src="../assets/achara/others-projects-achara (1).png " alt="Other Project Image 1"></a>
+        <p><span id="black-span">Restaurants</span> 
+            <span class="dot"></span> Charlie's Restaurant</p>
+        <h2>Colorful, revitalized and detailed: <br> Charlies is a project with excellent detail results</h2>
+        <hr>
+    </div>
+    <div class="other-project-item">
+        <a href="loot.html"><img src="../assets/achara/others-project-achara (7).png " alt="Other Project Image 2"></a>
+        <p><span id="black-span">Retail</span> 
+            <span class="dot"></span>Loot</p>
+        <h2>A complete revitalization of a Retail shop! New facade, interior design and more! Loot Dublin.</h2>
+       <hr>
+    </div>
+    <div class="other-project-item">
+        <a href="juniors.html"><img src="../assets/achara/others-projects-achara (3).png " alt="Other Project Image 3"></a>
+        <p><span id="black-span">Restaurants</span> 
+            <span class="dot"></span>Juniors Restaurant</p>
+        <h2>A complete renovation makes all the difference when it comes <br>to quality time</h2>
+       <hr>
+    </div>
+    <div class="other-project-item">
+        <a href="enscape.html"><img src="../assets/achara/others-projects (9).png " alt="Other Project Image 4"></a>
+        <p><span id="black-span">Interior Design</span> 
+            <span class="dot"></span>Enscape</p>
+        <h2>We designed a place harmonize into a seamlessm and unified design that completes the experience</h2>
+       <hr>
+    </div>
+</div>
+<div class="image-container1">
+    <div class="text-overlay">
+        <h2>Transform your ideas into reality today.</h2>
+        <p>Studio Forja is dedicated to making your vision a reality, one step at a time. Get in touch today and let's begin to explore the potential of your company.</p>
+        <a href="contact.html"><button class="nav-button">Let's Begin</button></a>
+    </div>
+    <img src="../assets/navbar/contact-image.png" alt="Your Image Description" class="main-image">
+</div>
+
+<div id="footer-container"></div>
+<script src="../js/footer.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

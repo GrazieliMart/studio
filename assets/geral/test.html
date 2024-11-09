@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio Forja Steps</title>
+<style>
+    /* Estilo base para a estrutura e layout */
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f3f3f3;
+    }
+    .steps-container {
+        display: flex;
+        width: 80%;
+        max-width: 1000px;
+        border: 1px solid #ddd;
+        overflow: hidden;
+        border-radius: 8px;
+    }
+    .steps-sidebar {
+        width: 30%;
+        background-color: #f9f9f9;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .steps-item {
+        padding: 15px;
+        background-color: #fff;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
+    .steps-item.active {
+        background-color: #ffd700;
+    }
+    .steps-content {
+        position: relative;
+        width: 70%;
+        overflow: hidden;
+    }
+    .steps-bg-image {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+    .steps-bg-image.active {
+        opacity: 1;
+    }
+    .steps-text-overlay {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 20px;
+        font-size: 18px;
+        box-sizing: border-box;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+    .steps-text-overlay.active {
+        opacity: 1;
+    }
+</style>
+</head>
+<body>
+
+<div class="steps-container">
+    <!-- Div da esquerda com os passos -->
+    <div class="steps-sidebar">
+        <div class="steps-item" onclick="showStep(0)">Step 1: Site Visit and Briefing</div>
+        <div class="steps-item" onclick="showStep(1)">Step 2: Concept Development</div>
+        <div class="steps-item" onclick="showStep(2)">Step 3: Design Development</div>
+        <div class="steps-item" onclick="showStep(3)">Step 4: Renderings</div>
+        <div class="steps-item" onclick="showStep(4)">Step 5: Technical Project</div>
+        <div class="steps-item" onclick="showStep(5)">Step 6: Execution Supervision</div>
+    </div>
+
+    <!-- Div da direita com imagem de fundo e texto sobreposto -->
+    <div class="steps-content">
+        <div class="steps-bg-image" id="stepsBgImage"></div>
+        <div class="steps-text-overlay" id="stepsTextOverlay"></div>
+    </div>
+</div>
+
+<script>
+    // Dados das etapas, incluindo imagem e texto
+    const steps = [
+        {
+            img: "step1-projects (1).png",
+            text: "We begin by understanding your goals and the unique characteristics of your space through an in-depth briefing and on-site visit. This step ensures we’re aligned with your vision from the start."
+        },
+        {
+            img: "step2-img.png",
+            text: "With the initial understanding in place, we dive into brainstorming and developing concepts that reflect your objectives, creating a foundation that balances creativity with functionality."
+        },
+        {
+            img: "step3-img.png",
+            text: "Our team refines the chosen concepts and carefully selects materials to match the desired aesthetic, ensuring both quality and alignment with the project's goals."
+        },
+        {
+            img: "step4-img.png",
+            text: "We produce detailed renderings that bring the project to life visually, allowing you to see how the design will look in its finished form."
+        },
+        {
+            img: "step5-img.png",
+            text: "After approval, we create a complete technical project that includes every detail needed for the build, ensuring accuracy and a smooth execution."
+        },
+        {
+            img: "step6-img.png",
+            text: "Our team supervises the execution phase closely, guaranteeing that every aspect is crafted to perfection. Quality and attention to detail are at the heart of our work."
+        }
+    ];
+
+    let activeIndex = 0;
+
+    function showStep(index) {
+        // Atualiza a etapa ativa
+        activeIndex = index;
+        const stepsItems = document.querySelectorAll('.steps-item');
+        const stepsBgImage = document.getElementById('stepsBgImage');
+        const stepsTextOverlay = document.getElementById('stepsTextOverlay');
+
+        // Remove a classe "active" de todos os retângulos
+        stepsItems.forEach((item, idx) => {
+            item.classList.toggle('active', idx === index);
+        });
+
+        // Atualiza a imagem de fundo
+        stepsBgImage.style.backgroundImage = `url(${steps[index].img})`;
+        stepsBgImage.classList.remove('active');
+        setTimeout(() => {
+            stepsBgImage.classList.add('active');
+        }, 10); // Delay para o efeito de transição
+
+        // Atualiza o texto
+        stepsTextOverlay.classList.remove('active');
+        setTimeout(() => {
+            stepsTextOverlay.textContent = steps[index].text;
+            stepsTextOverlay.classList.add('active');
+        }, 300); // Tempo de delay para sincronizar com a transição da imagem
+    }
+
+    // Carrega a primeira etapa por padrão
+    showStep(0);
+</script>
+
+</body>
+</html>
