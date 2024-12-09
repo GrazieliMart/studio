@@ -47,32 +47,34 @@
             </div>
 
             <!-- Formulário com as perguntas -->
-            <form action="/submit_form" method="POST">
-                <div class="question-page active" id="question1">
-                    <div class="question">What's the name of your company?</div>
-                    <input type="text" name="nome" class="form-control" placeholder="Your company name" required>
-                    <button type="button" class="btn" onclick="nextQuestion()">Next</button>
-                </div>
+           
 
-                <div class="question-page" id="question2">
-                    <div class="question">What's your name?</div>
-                    <input type="text" name="idade" class="form-control" placeholder="Your name" required>
-                    <button type="button" class="btn" onclick="nextQuestion()">Next</button>
-                </div>
+            <form method="POST" data-netlify="true" name="contact" action="thank-you.html">
 
-                <div class="question-page" id="question3">
-                    <div class="question">Insert an e-mail to contact</div>
-                    <input type="email" name="email" class="form-control" placeholder="Your e-mail" required>
-                    <button type="button" class="btn" onclick="nextQuestion()">Next</button>
-                </div>
-                
-                <div class="question-page" id="question4">
-                    <div class="question">Talk about your idea/project</div>
-                    <input type="text" name="about" class="form-control" placeholder="Write here" required>
-                    <button type="submit" class="btn">Submit</button>
-                </div>
-
-            </form>
+        <div class="question-page active" id="question1">
+            <div class="question">What's the name of your company?</div>
+            <input type="text" name="company-name" class="form-control" placeholder="Your company name" required>
+            <button type="button" class="btn" onclick="nextQuestion()">Next</button>
+        </div>
+    
+        <div class="question-page" id="question2">
+            <div class="question">What's your name?</div>
+            <input type="text" name="your-name" class="form-control" placeholder="Your name" required>
+            <button type="button" class="btn" onclick="nextQuestion()">Next</button>
+        </div>
+    
+        <div class="question-page" id="question3">
+            <div class="question">Insert an e-mail to contact</div>
+            <input type="email" name="email" class="form-control" placeholder="Your e-mail" required>
+            <button type="button" class="btn" onclick="nextQuestion()">Next</button>
+        </div>
+        
+        <div class="question-page" id="question4">
+            <div class="question">Talk about your idea/project</div>
+            <textarea name="about" class="form-control" placeholder="Write here" required></textarea>
+            <button type="submit" class="btn">Submit</button>
+        </div>
+    </form>
         </div>
 
         <!-- Div Direita: Imagem -->
