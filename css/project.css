@@ -2,9 +2,56 @@
 .mini-div i {
     margin-right: 5px;
 }
-
+::selection {
+    background-color: black;
+    color: beige;
+}
 .carousel {
-position: relative;
+    position: relative;
+    width: 100%;
+}
+.filtros {
+    margin-bottom: 20px;
+}
+
+
+.filter-btn  {
+    color: rgb(173, 173, 173);
+    text-decoration: none;
+    font-size: 15px;
+    border: none;
+    background: none;
+    font-weight: 600;
+    gap: 50px;
+  
+  }
+  .carousel-inner {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+  
+  .filter-btn::before {
+    margin-left: auto;
+  }
+  
+  .filter-btn::after, .filter-btn::before {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #696767;
+    display: block;
+    transition: 0.5s;
+  }
+  
+  .filter-btn:hover::after, .filter-btn:hover::before {
+    width: 100%;
+  }
+  .filter-btn.active {
+    color: #696767; /* Cor do texto do botão ativo */
+   
 }
 .view-gallery {
 text-decoration: underline;
@@ -114,7 +161,7 @@ margin-top: 50px;
 .carousel-inner {
 position: relative;
 width: 100%;
-margin-bottom: 100px;
+
 overflow: hidden;
 }
 
@@ -201,6 +248,117 @@ color: #000000;
 color: #f1c638;
 
 }
+    
+.carousel {
+    margin-top: -50px;
+    position: relative;
+}
+        body  {
+            font-family: 'Futura PT', sans-serif;
+            padding: 0px;
+            overflow-x: hidden;
+            margin: 0;
+            text-align: center;
+            background-color: #f7f6f0 !important;
+            scroll-behavior: smooth;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .other-project-item {
+            margin-top: 50px;
+    text-align: center;
+    box-shadow: 0px 2px 5px #9b9b9a27;
+    font-weight: 500;
+    border-radius: 1px;
+    background-color: #fff;
+    width: 100%;
+}
+        /* Animação de abertura suave */
+        #map-container {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            width: 100%;
+            margin-bottom: 50px;
+            height: auto;
+            object-fit: cover;
+        }
+
+        /* Estilos dos pins */
+        .custom-pin {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(410%, -0%);
+            width: 20px;
+            height: 20px;
+            background-color: #ffbf00;
+            border: 2px solid #FFFFFF;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.089);
+            transition: transform 0.3s ease;
+        }
+        .custom-pin:hover{
+         
+            background-color: #000000;
+            cursor: pointer;
+         
+            transition: 0.2s;
+        }
+        .custom-pin:active{
+            background-color: #000000;
+        }
+
+        /* Estilos das informações dos pins */
+        .point-info {
+            position: absolute;
+            top: 20px;
+            right: -350px;
+            width: 400px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.048);
+            opacity: 0;
+            transition: right 0.5s ease, opacity 0.5s ease;
+        }
+        .point-info h1{
+            font-weight: 200;
+        }
+        .point-info img {
+    width: 100%;
+    max-width: 350px;
+    margin-bottom: 10px;
+}
+        .point-info.show {
+            right: 200px;
+            opacity: 1;
+        }
+        .fixed-navbar-space {
+    padding-top: 150px;
+}
+@media (max-width: 768px) {
+    #map-container{
+        display: none;
+    }
+    #p-yellow{
+        display: none;
+    }
+    .btn-outline-secondary {
+    display: none;
+}
+.project-description{
+    display: none;
+}
+footer {
+        background-color: e9e9e9;
+        margin-top: 100px;
+    }
+
+}
 
 .other-project-gallery {
 font-weight: 300;
@@ -213,7 +371,7 @@ font-family: 'Futura PT', sans-serif;
     max-width: 1300px;
 }
 .other-project-item {
-    text-align: left;
+    text-align: center;
     font-weight: 500;
     width: 100%;
 }
@@ -235,12 +393,20 @@ transition: filter 0.3s ease;
     font-size: 14px;
     color: #979797;
 }
+.projetos-studio-forja{
+    justify-content: center;
+    display: inline;
+}
 .other-project-item h2{
     color: #302e2e;
     font-size: 17px;
 }
-#black-span{
-    color: #f1c638;
+#black-span {
+    color: #423e3eb6;
+    font-weight: 500;
+    margin-top: 50px;
+    text-decoration: none;
+    font-size: 15px;
 }
 .other-project-item .dot {
     display: inline-block;
@@ -360,10 +526,26 @@ object-fit: cover;
         height: auto;
         display: block;
     }
-    .other-project-item h2 {
-       
-        DISPLAY: none;
-     
+    .carousel-control-next-icon, .carousel-control-prev-icon {
+        display: inline-block;
+        width: 2rem;
+        top: 20px;
+        height: 2rem;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-size: 100% 100%;
+        margin-top: 60px;
+    }
+    .carousel-inner {
+        position: relative;
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+    }
+    .other-project-item {
+        text-align: center;
+        font-weight: 500;
+        width: 300px;
     }
     .text-overlay{
         width: 100%;

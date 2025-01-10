@@ -28,27 +28,24 @@
 <hr>
 
 
-
+<div class="gallery">
 <div class="image-container">
     <img src="../assets/axis/axis.png" alt="Imagem 2" class="img-fluid">
 </div>
-
-<p>AXIS. New reception area and office.</p>
-
- 
 <div class="image-container">
     <img src="../assets/axis/technical-axis (3).jpg" alt="Imagem 2" class="img-fluid">
 </div>
-
-<p>AXIS. 3D Project of the interior and benches.</p>
-
 <div class="image-container">
     <img src="../assets/axis/technical-axis (2).jpg" alt="Imagem 3" class="img-fluid">
 </div>
-<p>AXIS. 3D Model of the reception in real life.</p>
+<div id="fullscreen-view" class="fullscreen hidden">
+    <button id="close-btn">✕</button>
+    <button id="prev-btn">⟨</button>
+    <img id="fullscreen-image" src="" alt="Fullscreen Image">
+    <button id="next-btn">⟩</button>
+</div>
+</div>
 
-
-<!-- Carrossel -->
 <div id="overlay-carousel" class="overlay-carousel" data-interval="false"></div>
 
 <div id="imageCarousel" class="carousel slide">
@@ -96,17 +93,12 @@
     </a>
 </div>
 
-<div class="project-description">
-    <h1>Full Transformation</h1>
-    <p>We've designed and build a stunning new reception area and office for the Axis community centre</p>
-  </div>
-<div class="container">
-    <div class="div1"><img src="../assets/axis/axis-div (1).png" alt=""></div>
-    <div class="div2"><img src="../assets/axis/axis-div (2).png" alt=""></div>
-</div>
+
+<script src="../js/js-projects.js">
+</script>
 
 <br><br><br>
-<!-- Segundo Carrossel -->
+
 <div id="overlay-carousel" class="overlay-carousel" data-interval="false"></div>
 
 <div id="imageCarousel2" class="carousel slide">
@@ -212,7 +204,6 @@
     }
 </script>
 
-
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         // Animação ao rolar para baixo na div
@@ -233,56 +224,48 @@
     });
 </script>
 
-
-
-
-<br><br><br>
-<div class="project-description">
-    <p id="p-yellow">Similar Projects</p> 
-    <h1>You may also like</h1>
-     
-    </div><br>
-
-
-<div class="other-project-gallery">
-    <div class="other-project-item">
-        <a href="achara.html"><img src="../assets/achara/others-project-achara (5).png" alt="Other Project Image 1"></a>
-        <p><span id="black-span">Restaurants</span> 
-            <span class="dot"></span> Achara Dublin</p>
-        <h2>Elegance and confort side by side <br>ar, tables, benches , floor, and more – <br> all carefully designed by our team</h2>
-        <hr>
-    </div>
-    <div class="other-project-item">
-        <a href="charlie.html"><img src="../assets/achara/others-projects-achara (1).png " alt="Other Project Image 2"></a>
-        <p><span id="black-span">Interior Design</span> 
-            <span class="dot"></span>Charlie</p>
-        <h2>WColorful, revitalized and detailed:
-            Charlies is a project with excellent detail results</h2>
-       <hr>
-    </div>
-    <div class="other-project-item">
-        <a href="juniors.html"><img src="../assets/achara/others-projects-achara (3).png " alt="Other Project Image 3"></a>
-        <p><span id="black-span">Restaurants</span> 
-            <span class="dot"></span>Juniors Restaurant</p>
-        <h2>A complete renovation makes all the difference when it comes <br>to quality time</h2>
-       <hr>
-    </div>
-    <div class="other-project-item">
-        <a href="handsome.html"><img src="../assets/achara/others-projects (9).png " alt="Other Project Image 4"></a>
-        <p><span id="black-span">Interior Design</span> 
-            <span class="dot"></span>Enscape</p>
-        <h2>We designed a place harmonize into a seamlessm and unified design that completes the experience</h2>
-       <hr>
-    </div>
-</div>
-<div class="image-container1">
-    <div class="text-overlay">
-        <h2>Transform your ideas into reality today.</h2>
-        <p>Studio Forja is dedicated to making your vision a reality, one step at a time. Get in touch today and let's begin to explore the potential of your company.</p>
-        <a href="contact.html"><button class="nav-button">Let's Begin</button></a>
-    </div>
-    <img src="../assets/navbar/contact-image.png" alt="Your Image Description" class="main-image">
-</div>
+<div class="align-projects-reccomendations">
+    <div class="project-description">
+        <p id="p-yellow">Similar Projects</p> 
+        <h1>You may also like</h1>
+         
+        </div><br>
+    
+    
+    <div class="other-project-gallery">
+        <div class="other-project-item">
+            <a href="limerick.html"><img src="../assets/achara/others-projects-achara (8).png " alt="Other Project Image 1"></a>
+         <br>
+            <p><span id="black-span">Restaurants</span> 
+              
+            <h2>Limerick</h2>
+            <br>
+        </div>
+        <div class="other-project-item">
+            <a href="enscape.html"><img src="../assets/achara/others-projects (9).png " alt="Other Project Image 2"></a>
+            <br>
+            <p><span id="black-span">Restaurants</span> 
+              
+            <h2>Juno</h2>
+            <br>
+        </div>
+        <div class="other-project-item">
+            <a href="juniors.html"><img src="../assets/achara/others-projects-achara (3).png " alt="Other Project Image 3"></a>
+            <br>
+            <p><span id="black-span">Restaurants</span> 
+              
+            <h2>Juniors</h2>
+            <br>
+        </div>
+        <div class="other-project-item">
+            <a href="district.html"><img src="../assets/achara/others-projects (8).png " alt="Other Project Image 4"></a>
+            <br>
+            <p><span id="black-span">Interior Design</span> 
+              
+            <h2>District</h2>
+            <br>
+        </div>
+    </div></div>
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">

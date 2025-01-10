@@ -3,7 +3,7 @@ body {
     padding: 0px;
     margin: 0;
     text-align: center; /* Centraliza o texto */
-    background-color: #ffffff;
+    background-color: #f7f6f0 !important;
     scroll-behavior: smooth; /* Propriedade CSS para rolagem suave */
 }
 html {
@@ -66,13 +66,29 @@ height: 800px;
     display: flex;
     align-items: center;
 }
+.intro-video {
+    position: fixed;  /* Fixa o vídeo na tela */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Faz o vídeo cobrir toda a tela */
+    z-index: 9999;  /* Garante que o vídeo esteja sobre outros elementos */
+    opacity: 1;
+    transition: opacity 1s ease-out;  /* Efeito de fade-out */
+}
+
+.intro-video.hidden {
+    opacity: 0;  /* Torna o vídeo invisível */
+}
 
 .mini-div i {
     margin-right: 5px;
 }
 
 .carousel {
-position: relative;
+    margin-top: -50px;
+    position: relative;
 }
 .view-gallery {
 text-decoration: underline;
@@ -94,18 +110,19 @@ height: 800px;
 .view-gallery i {
 margin-right: 5px;
 }
-
 .fullscreen {
-position: fixed;
-top: 0;
-left: 0;
-width: 100vw;
-height: 100vh;
-background-color: rgba(0, 0, 0, 0.9);
-z-index: 1050;
-display: flex;
-justify-content: center;
-align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-top: 10px;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1050;
+    display: flex
+;
+    justify-content: center;
+    align-items: center;
 }
 
 .fullscreen img {
@@ -222,7 +239,7 @@ transition: filter 0.3s ease;
 
 .project-description {
 text-align: left;
-margin: 0px 300px 0px 300px;
+
 }
 .container {
 display: flex;
@@ -281,9 +298,37 @@ font-family: 'Futura PT', sans-serif;
     max-width: 1300px;
 }
 .other-project-item {
-    text-align: left;
+    text-align: center;
+    box-shadow: 0px 5px 5px #9b9b9a40;
     font-weight: 500;
+    border-radius: 5px;
+    background-color: #fff;
     width: 100%;
+}
+.carousel-inner img {
+   
+    margin: auto;
+}
+
+
+.other-project-item .dot {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    background-color: #a0a0a0;
+    border-radius: 50%;
+    margin: 0 15px;
+}
+
+.other-project-item hr {
+    width: 80%;
+    border: none;
+    height: 2px;
+    background-color: #eaeaea;
+    margin: 20px auto;
+}
+.align-projects-reccomendations {
+    margin: 0px 300px 0px 300px;
 }
 .other-project-item img {
 width: 100%;
@@ -308,7 +353,7 @@ transition: filter 0.3s ease;
     font-size: 17px;
 }
 #black-span{
-    color: #f1c638;
+    color: #868685;
 }
 .other-project-item .dot {
     display: inline-block;
@@ -329,7 +374,7 @@ transition: filter 0.3s ease;
     margin-bottom: 0px;
     font-weight: 500;
     font-size: 16px;
-    color: #f1c638;
+    color: #747474;
 } 
 .image-container1 {
 
@@ -363,6 +408,62 @@ width: 100%;
 height: 300px;
 object-fit: cover;
 }
+.image-container:hover img {   cursor: zoom-in;
+    
+}
+
+.gallery.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.gallery.fullscreen img {
+    max-width: 90%;
+    max-height: 90%;
+    margin: auto;
+    display: block;
+}
+
+.gallery  .hidden {
+    display: none;
+}
+
+.gallery  #close-btn,
+.gallery #prev-btn,
+.gallery #next-btn {
+    position: absolute;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1010;
+}
+
+.gallery #close-btn {
+    top: 10px;
+    right: 100px;
+}
+
+.gallery #prev-btn {
+    left: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.gallery #next-btn {
+    right: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+}
 /* Responsividade */
 @media (max-width: 768px) {
     .project-description {
@@ -380,15 +481,21 @@ object-fit: cover;
     }
     .image-container img {
         width: 90%;
-        height: 300px;
+        height: 200px;
     }
     .image-container video {
         width: 90%;
         height: 300px;
     }
+    .image-container1{
+        display: none;
+    }
     .carousel-item img {
         width: 90%;
         height: 200px;
+    }
+    .align-projects-reccomendations {
+        margin: 0px 3px 0px 3px;
     }
     .view-gallery {
     
@@ -404,9 +511,24 @@ object-fit: cover;
         width: 100%;
         height: 100%;
     }
+    .gallery #next-btn {
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .gallery #close-btn {
+        top: 10px;
+        right: 10px;
+    }
+    .gallery #prev-btn {
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
     .custom-indicators li {
-      
+        margin-bottom: 100px;
         height: 20px;
+        width: 20px;
     }
     .other-project-gallery {
         display: GRID;
@@ -429,5 +551,10 @@ object-fit: cover;
     }
     .text-overlay2{
         width: 100%;
+    }
+    .titulo-template P {
+        font-weight: 100;
+        letter-spacing: 5px;
+        font-size: 20px;
     }
 }

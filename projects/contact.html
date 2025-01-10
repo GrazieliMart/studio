@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="../assets/navbar/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/body.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/contact.css">
     <title>Projects into Reality - Studio Forja</title>
     <style>     
@@ -38,21 +39,25 @@
         <div class="form-section">
             <!-- Conteúdo fixo da seção align-contact -->
             <div class="align-contact">
-                <img src="../assets/navbar/logo-studio.png" alt="">
-                <h1>Let's transform your <span>project</span> <br>into reality!</h1>
-                <p>Contact us by filling a few questions below to begin your project idea. </p>
+             
+                <h1>Let's transform your project into reality!</h1>
                 <br>
-               
-                <br><br>
-            </div>
-
-            <!-- Formulário com as perguntas -->
-           
-
-            <form method="POST" data-netlify="true" name="contact" action="thank-you.html">
+                <p>Contact us by filling a few questions bellow to begin your project idea ou contact us <br>by the contact information. </p>
+                <br>
+                <div class="contact-details">
+                  
+                    <p><strong><a href="mailto:contact@forjaworks.com">contact@forjaworks.com</a></strong></p>
+                    <p><strong>202 Holly Rd, Fox-And-Geese, Dublin 12, D12 CX27, Ireland</strong></p>
+                    <div class="align-itens">
+                    <p>
+                        <a href="https://www.instagram.com/yourprofile" target="_blank"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/yourprofile" target="_blank"><i class="bi bi-linkedin"></i></a>
+                    </p></div>
+                    <br><br>
+  <form method="POST" data-netlify="true" name="contact" action="thank-you.html">
 
         <div class="question-page active" id="question1">
-            <div class="question">What's the name of your company?</div>
+            <div class="question">What's the name of <br>your company?</div>
             <input type="text" name="company-name" class="form-control" placeholder="Your company name" required>
             <button type="button" class="btn" onclick="nextQuestion()">Next</button>
         </div>
@@ -75,14 +80,24 @@
             <button type="submit" class="btn">Submit</button>
         </div>
     </form>
+                </div>
+                <br><br>
+            </div>
+
+            <!-- Formulário com as perguntas -->
+           
+
+       
         </div>
 
         <!-- Div Direita: Imagem -->
-        <div class="image-section">
-            <img src="../assets/geral/contact-image.png" alt="Imagem de Contato">
+   
         </div>
     </div>
-
+  
+           <!--Footer-->
+<div id="footer-container"></div>
+<script src="../js/footer.js"></script>
     <script>
         // Oculta a tela de carregamento após 1 segundo
         window.addEventListener("load", () => {

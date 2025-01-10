@@ -1,25 +1,47 @@
-body {
-    margin: 0;
-    font-family: 'Futura PT', sans-serif; /* Aplica a fonte Futura PT ao corpo */
+@font-face {
+    font-family: 'Gosha Sans';
+    src: url('../fonts/GoshaSans-Bold.otf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
 }
+
+body {
+        font-family: 'Gosha Sans', sans-serif !important;
+       
+    }
+    /* Esconde os itens em telas maiores que 768px */
+#about-mobile,
+#contact-mobile {
+    display: none;
+}
+
+/* Torna os itens visíveis em telas menores ou iguais a 768px */
+@media (max-width: 768px) {
+    #about-mobile,
+    #contact-mobile {
+        display: block;
+    }
+}
+
 /* Estilos para a barra de rolagem */
 ::-webkit-scrollbar {
-    width: 15px; /* largura da barra de rolagem */
+    width: 25px; /* largura da barra de rolagem */
   }
   
   ::-webkit-scrollbar-track {
-    background: #f1f1f1; /* cor do fundo da barra */
-    border-radius: 10px; /* borda arredondada do fundo */
+    background: #f7f6f0; /* cor do fundo da barra */
+    border-radius: 0px; /* borda arredondada do fundo */
   }
   
   ::-webkit-scrollbar-thumb {
-    background-color: #000000; /* cor da barra de rolagem */
-    border-radius: 10px; /* borda arredondada da barra */
-    border: 3px solid #f1f1f1; /* espaço ao redor da barra */
+    background-color: #dad9d4; /* cor da barra de rolagem */
+    border-radius: 0px; /* borda arredondada da barra */
+    border: 3px solid #f7f6f0; /* espaço ao redor da barra */
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    background-color: #000; /* cor ao passar o mouse */
+    transition: 0.2s;
+    background-color: #b9b6ac; /* cor ao passar o mouse */
   }
   
 .faixa-informativa, .navbar {
@@ -62,13 +84,16 @@ opacity: 1;
 }
 
 .navbar {
-position: relative;
+    top: 0;
+    width: 100% !important;
+position: fixed !important;
 z-index: 20; /* Z-index da navbar está correto */
 display: flex;
 align-items: center;
 justify-content: space-around;
 padding: 10px 20px;
-background-color: #ffffff; /* Cor padrão */
+margin-top: 20px;
+background-color: #f7f6f0 ; /* Cor padrão */
 }
 
 /* Se o dropdown tiver um z-index menor que a navbar, ele não sobreporá */
@@ -89,7 +114,7 @@ display: flex;
 align-items: center;
 justify-content: space-around;
 padding: 10px 20px;
-background-color: #ffffff; /* Cor padrão */
+background-color: #f7f6f0; /* Cor padrão */
 z-index: 10;
 }
 
@@ -160,7 +185,8 @@ filter: brightness(0) invert(1); /* Inverte as cores da imagem */
 
 
 .logo img {
-    height: 50px;
+    margin-left: -40px;
+    height: 90px;
 }
 
 .nav-links {
@@ -172,9 +198,9 @@ filter: brightness(0) invert(1); /* Inverte as cores da imagem */
 }
 
 .nav-links li a {
-    color: black;
+    color: rgb(43, 43, 43);
     text-decoration: none;
-    font-size: 12px;
+    font-size: 15px;
     padding: 10px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
@@ -368,8 +394,8 @@ background-color: #000000; /* Fundo ao passar o mouse */
 
 
 .faixa-informativa {
-    position: relative;
-
+    position: fixed !important;
+    width: 100%  !important;
     z-index: 20;
     font-weight: 100;
     text-align: center;
@@ -377,6 +403,7 @@ background-color: #000000; /* Fundo ao passar o mouse */
     letter-spacing: 2px;
     color: #fff;
     font-size: 10px;
+    top: 0;
     background-color: #000000;
     transition: 0.2s;
 }
@@ -480,13 +507,12 @@ nav .nav-button{
     }
     
     .logo img {
-        
-        height: 60px;
-        margin-left: 50px;
+        height: 70px;
+        margin-left: 0px;
     }
    
     .navbar {
-        justify-content: space-between;
+        justify-content: center;
     }
     .dropdown-content{
         display: none;
@@ -496,11 +522,11 @@ nav .nav-button{
         opacity: 0;
         visibility: hidden;
         position: fixed;
-        top: 10%;
+        top: 12%;
         text-align: left;
         right: 0;
         width: 100%;
-        background-color: #ffffff;
+        background-color: #f7f6f0 !important;
         gap: 30px;
         height: 100vh;
         font-size: 10px;
@@ -525,11 +551,12 @@ nav .nav-button{
 
     .hamburger {
         position: fixed;
-        text-align: right;
+        text-align: left;
         display: block;
         justify-content: center;
-        float: right;
-        /* right: -100px; */
+        float: left;
+        left: 30px;
+        top: 40px;
     }
     .dropdown-content{
         display: none;

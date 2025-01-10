@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="../assets/navbar/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/body.css">
@@ -37,7 +38,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f1c638; /* Verde sustentável */
+    background-color: #8b8981; /* Verde sustentável */
     border-radius: 0px;
     position: relative;
     color: rgb(0, 0, 0);
@@ -109,7 +110,7 @@
         cursor: pointer;
         font-size: 24px;
         padding: 10px;
-        color: #ffc107;
+        color: #8b8981;
     }
     .arrow:hover {
         color: #ffffff;
@@ -122,7 +123,7 @@
 
 position: relative;
 margin-top: 10%;
-display: flex;
+display: none;
 justify-self: center;
 width: 70%;
 }
@@ -132,7 +133,7 @@ border: 1px solid #fff;
 }
 .image-container1 button:hover{
 text-decoration: underline;
-color: #f1c638;
+color: #8b8981;
 }
 .text-overlay {
 position: absolute;
@@ -151,6 +152,8 @@ height: 300px;
 object-fit: cover;
 }
 .align-step {
+    pad: 20px;
+    background-color: #e2e2e0;
     display: inline-block;
     justify-self: center;
     width: 100%;
@@ -158,10 +161,12 @@ object-fit: cover;
     align-items: center;
 }
 .steps-sidebar {
-    width: 100%;
-    background-color: #f9f9f9;
+    margin-right: 40px;
+    width: 300px;
+    background-color: #e2e2e0;
     padding: 20px;
-    display: flex;
+    display: flex
+;
     justify-content: normal;
     flex-direction: column;
     gap: 30px;
@@ -175,11 +180,11 @@ object-fit: cover;
         
     }
     .steps-item:hover{
-        background-color: #ffc107;
+        background-color: #8b8981;
         color: #ffffff;
     }
     .steps-item.active {
-        color: #ffc107;
+        color: #8b8981;
         background-color: #000000;
     }
     .steps-content {
@@ -217,25 +222,30 @@ object-fit: cover;
         opacity: 1;
     }
     .image-container {
+       
         margin-top: 100px;
         position: relative;
     }
+    .project-description {
+
+    text-align: left;
+    margin: 0px 300px 0px 300px;
+}
     .text-overlay-title {
-        position: absolute;
-        top: 35%;
-        line-height: 110px;
-        left: 15%;
-        width: 700px;
-        background-color: #ffffff00;
-        color: white;
-        font-size: 150px;
-        font-weight: bold;
-        text-align: left;
-        padding: 10px 20px;
-        border-radius: 8px;
-    }
+    position: absolute;
+    top: 35%;
+    line-height: 110px;
+    width: 100%;
+    background-color: #ffffff00;
+    color: white;
+    font-size: 150px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
     .image-container img {
         width: 100%;
+        display: none;
         height: 600px;
     }
     .image-container2, .image-container1 {
@@ -347,7 +357,7 @@ footer {
         position: absolute;
         top: 0;
         left: 0;
-        background-size: contain;
+        background-size: cover;
         background-position: center;
        
         
@@ -362,19 +372,121 @@ footer {
     margin: 0px;
 }
     }
-   
-       
+    .img-fluid {
+     max-width: 100%; 
+    height: auto;
+}
+.text-overlay-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    color: #fff;
+    opacity: 0; /* Inicialmente invisível */
+    transform: translate(-50%, -50%) scale(0.9); /* Levemente menor */
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.text-overlay-title.animate {
+    opacity: 1; /* Torna o texto visível */
+    transform: translate(-50%, -50%) scale(1); /* Escala ao tamanho normal */
+}.image-container {
+    margin-top: 100px;
+    position: relative;
+    height: 600px; /* Altura inicial */
+    background-image: url('../assets/geral/how-it-works-image.png'); /* Substitua pelo caminho correto da sua imagem */
+    background-position: center;
+    background-attachment: fixed; /* Fixando a imagem no fundo */
+    background-size: cover; /* Garantir que a imagem ocupe todo o fundo */
+    transition: height 0.3s ease-out; /* Transição suave para alteração da altura */
+}
+@media (max-width: 768px) {
+    .project-description {
+        margin: 0px 30px 0px 30px;
+    }
+    .steps-sidebar {
+    margin-right: 40px;
+    width: 100%;
+    background-color: #e2e2e0;
+    padding: 20px;
+    display: flex
+;
+    justify-content: normal;
+    flex-direction: column;
+    gap: 30px;
+}
+}
+.goals {
+    margin-top: 100px;
+    display: flex; /* Alinha as divs horizontalmente */
+    justify-content: center; /* Espaça igualmente as divs internas */
+    gap: 50px; /* Espaço entre as divs */
+  
+}
+
+.goal {
+    background-color: #f4f4f4; /* Cor de fundo para as divs internas */
+    padding: 20px; /* Espaçamento interno */
+    width: 20%; /* Largura de cada div interna */
+    text-align: center; /* Centraliza o conteúdo dentro de cada div */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+.goal:hover{
+    background-color: #e2e2e2;
+}
+.goal h1 {
+    font-size: 34px; /* Tamanho do título */
+    margin-bottom: 10px; /* Espaço abaixo do título */
+}
+
+.goal p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px; /* Tamanho do parágrafo */
+    color: #555; /* Cor do texto */
+}
+
 </style>
 </head>
 <body>
 <div id="navbar-container"></div>
-<div id="overlay"></div>
+
 <script src="../js/navbar.js"></script>
 
 <div class="image-container">
     <img src="../assets/geral/how-it-works-image.png" alt="Imagem 2" class="img-fluid">
     <div class="text-overlay-title">How it Works?</div>
-</div>
+</div><script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const textOverlay = document.querySelector(".text-overlay-title");
+        textOverlay.classList.add("animate");
+    });
+</script>
+<script>
+    window.addEventListener('scroll', function() {
+        const imageContainer = document.querySelector('.image-container');
+        const scrollPosition = window.scrollY;
+
+        // Defina a altura inicial e o valor mínimo
+        const initialHeight = 600; // A altura original
+        const minHeight = 0; // A altura mínima (quando rolar para baixo)
+
+        // A quantidade de redução da altura com base na rolagem
+        let newHeight = initialHeight - scrollPosition;
+
+        // Garante que a altura nunca seja menor que a altura mínima
+        if (newHeight < minHeight) {
+            newHeight = minHeight;
+        }
+
+        // Atualiza a altura da imagem conforme a rolagem
+        imageContainer.style.height = newHeight + 'px';
+    });
+</script>
+
+
+
 <br><br><br>
 <div class="project-description">
     <h1>At Studio Forja</h1>
@@ -472,14 +584,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 </script>
-<br><br><br><br><br><br>
-<div class="project-description">
-    <h1>Sustainability</h1>
-    <p>Studio Forja is deeply committed to sustainability and a greener future, consistently integrating environmentally conscious practices into our projects.</p>
-    <p>We believe that every choice matters, which is why we prioritize using recycled and sustainable materials, aligning our innovative design with solutions that respect the environment. Our approach reflects a desire to create a better and more responsible world for future generations.</p>
-</div>
-
-
+<!--
 <div class="sustainability-container">
     <div class="sustainability-box sustainability-box-one">
       <img src="../assets/geral/sustainability-1.png" alt="">
@@ -496,51 +601,23 @@ document.addEventListener("DOMContentLoaded", function() {
 <div class="image-container">
     <img src="../assets/geral/how-we-work-image-2.png" alt="Imagem 2" class="img-fluid">
  
-</div>
-<div class="project-description">
-    <p id="p-yellow">Eplore our Projects</p> 
-    <h1>Discover more about Studio Forja</h1>
-     
-    </div><br>
-
-
-<div class="other-project-gallery">
-    <div class="other-project-item">
-        <a href="charlie.html"><img src="../assets/achara/others-projects-achara (1).png " alt="Other Project Image 1"></a>
-        <p><span id="black-span">Restaurants</span> 
-            <span class="dot"></span> Charlie's Restaurant</p>
-        <h2>Colorful, revitalized and detailed: <br> Charlies is a project with excellent detail results</h2>
-        <hr>
+</div>-->
+<div class="goals">
+    <div class="goal">
+        <h1>01</h1>
+        <h2>Sustainability</h2>
+        <p>At Studio Forja, we strive to have a positive impact on the community by prioritizing local and artisanal products, eco-friendly materials, and partners who share the same vision. We believe that change starts from within and that our choices can positively impact the world, society, and the future.</p>
     </div>
-    <div class="other-project-item">
-        <a href="loot.html"><img src="../assets/achara/others-project-achara (7).png " alt="Other Project Image 2"></a>
-        <p><span id="black-span">Retail</span> 
-            <span class="dot"></span>Loot</p>
-        <h2>A complete revitalization of a Retail shop! New facade, interior design and more! Loot Dublin.</h2>
-       <hr>
+    <div class="goal">
+        <h1>02</h1>
+        <h2>Creativity</h2>
+        <p>Our projects stand out because we are meticulous and work to exceed expectations. We focus on solutions and seek new ways to do more and better, both in the final result and throughout the creative process, fostering collaboration with our clients.</p>
     </div>
-    <div class="other-project-item">
-        <a href="juniors.html"><img src="../assets/achara/others-projects-achara (3).png " alt="Other Project Image 3"></a>
-        <p><span id="black-span">Restaurants</span> 
-            <span class="dot"></span>Juniors Restaurant</p>
-        <h2>A complete renovation makes all the difference when it comes <br>to quality time</h2>
-       <hr>
+    <div class="goal">
+        <h1>03</h1>
+        <h2>Trust</h2>
+        <p>We maintain clear, transparent, and effective communication with our clients. We work and innovate to create a simple, seamless, and stress-free process, allowing our clients to focus on the creative journey while we take care of the details.</p>
     </div>
-    <div class="other-project-item">
-        <a href="enscape.html"><img src="../assets/achara/others-projects (9).png " alt="Other Project Image 4"></a>
-        <p><span id="black-span">Interior Design</span> 
-            <span class="dot"></span>Enscape</p>
-        <h2>We designed a place harmonize into a seamlessm and unified design that completes the experience</h2>
-       <hr>
-    </div>
-</div>
-<div class="image-container1">
-    <div class="text-overlay">
-        <h2>Transform your ideas into reality today.</h2>
-        <p>Studio Forja is dedicated to making your vision a reality, one step at a time. Get in touch today and let's begin to explore the potential of your company.</p>
-        <a href="contact.html"><button class="nav-button">Let's Begin</button></a>
-    </div>
-    <img src="../assets/navbar/contact-image.png" alt="Your Image Description" class="main-image">
 </div>
 
 <div id="footer-container"></div>

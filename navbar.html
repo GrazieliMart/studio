@@ -12,22 +12,23 @@
 </head>
 <body>
     <div class="faixa-informativa">
-       <a href="contact.html">SCHEDULE AN APPOINTMENT <i>WITH US</i></a> 
+       <a href=".../contact.html">SCHEDULE AN APPOINTMENT <i>WITH US</i></a> 
     </div>
 
-    <div class="overlay"></div> <!-- Overlay preta -->
+   <!-- <div class="overlay"></div>--> <!-- Overlay preta -->
 
     <nav class="navbar">
-        <div class="logo">
-            <a href="index.html"><img src="../assets/navbar/logo-studio.png" alt="Logo"></a>
-        </div>
+       
         <ul class="nav-links" id="nav-links">
-            <li><a href="index.html">INDEX</a></li>
+            <li><a href="../index.html">HOME</a></li>
           
             <li><a href="how-it-works.html">HOW IT WORKS</a></li>  
-            <li class="dropdown">
+            <li id="about-mobile"><a href="about.html">ABOUT</a></li>
+            <li id="contact-mobile"><a href="contact.html">CONTACT</a></li>
+            
+            <li class="">
                 <a href="projects.html">PROJECTS</a>
-                <div class="dropdown-content"> 
+               <!-- <div class="dropdown-content"> 
                     <div class="dropdown-right">  
                         <a href="how-it-works.html"><div class="image-overlay">
                             <h1>Far more than beautiful projects.</h1>
@@ -41,20 +42,27 @@
                         <a href="interior.html"><div class="item1"><p>INTERIOR</p></div></a>
                         <a href="retail.html"><div class="item2"><p>RETAIL</p></div></a>
                         <a href="restaurants.html"><div class="item3"><p>RESTAURANTS</p></div></a>
-                       <!--<a href="design-project.html"><div class="item4"><p>DESIGN PROJECT</p></div></a>-->
+                       <a href="design-project.html"><div class="item4"><p>DESIGN PROJECT</p></div></a>
                     </div>
-                </div>
+                </div>-->
             </li>
+              
+        </ul> <div class="logo">
+            <a href="../index.html"><img src="../assets/navbar/logo-studio-nav.png" alt="Logo"></a>
+        </div>
+       
+        <ul class="nav-links" id="nav-links">
+         
             <li><a href="about.html">ABOUT</a></li>
             <li><a href="contact.html">CONTACT</a></li>
+           <li> 
            
-        </ul>
-        <div class="social-icons">
             <a href="https://www.instagram.com/studio_forja/"><i class="bi bi-instagram"></i></a>
             <a href="https://wa.link/pbqwt4"><i class="bi bi-whatsapp"></i></a>
-        </div>
-       <a href="contact.html"> <button class="nav-button">Let's Begin</button></a>
-        <div class="hamburger" id="hamburger">
+      
+    </li>
+        </ul>
+           <div class="hamburger" id="hamburger">
             &#9776;
         </div>
     </nav>
@@ -100,7 +108,7 @@ overlay.addEventListener('click', function() {
     </script>
         
         
-    <script>
+   <!-- <script>
         const dropdown = document.querySelector('.dropdown');
         const dropdownContent = dropdown.querySelector('.dropdown-content');
     
@@ -137,7 +145,7 @@ overlay.addEventListener('click', function() {
             navbar.classList.remove('hovered');
         });
     }
-</script>
+</script>-->
 <script>
     let lastScrollPosition = 0;
     const navbarscroll = document.querySelector('.navbar');

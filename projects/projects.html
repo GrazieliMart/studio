@@ -10,355 +10,844 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
     <link rel="shortcut icon" href="../assets/navbar/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/project.css">
-    <title>Projects into Reality - Studio Forja</title>
+    <title>Projects I Studio Forja - Interior Design  Retail  Festivals and More +</title>
     <style>
-        /* Estilos existentes do código... */
-        body {
-            font-family: 'Futura PT', sans-serif;
-            padding: 0px;
-            overflow-x: hidden;
-            margin: 0;
-            text-align: center;
-            background-color: #ffffff;
-            scroll-behavior: smooth;
+        .navbar{
+            justify-content: space-around !important;
         }
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Animação de abertura suave */
-        #map-container {
-            display: none;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            width: 100%;
-            margin-bottom: 50px;
-            height: auto;
-            object-fit: cover;
-        }
-
-        /* Estilos dos pins */
-        .custom-pin {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(410%, -0%);
-            width: 20px;
-            height: 20px;
-            background-color: #ffbf00;
-            border: 2px solid #FFFFFF;
-            border-radius: 50%;
-            cursor: pointer;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.089);
-            transition: transform 0.3s ease;
-        }
-        .custom-pin:hover{
-         
-            background-color: #000000;
-            cursor: pointer;
-         
-            transition: 0.2s;
-        }
-        .custom-pin:active{
-            background-color: #000000;
-        }
-
-        /* Estilos das informações dos pins */
-        .point-info {
-            position: absolute;
-            top: 20px;
-            right: -350px;
-            width: 400px;
-            padding: 15px;
-            background-color: #f8f9fa;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-            opacity: 0;
-            transition: right 0.5s ease, opacity 0.5s ease;
-        }
-        .point-info h1{
-            font-weight: 200;
-        }
-        .point-info img {
-    width: 100%;
-    max-width: 350px;
-    margin-bottom: 10px;
+    @font-face {
+    font-family: 'Gosha Sans';
+    src: url('../fonts/GoshaSans-Bold.otf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
 }
-        .point-info.show {
-            right: 200px;
-            opacity: 1;
-        }
-        .fixed-navbar-space {
-    padding-top: 150px;
-}
-@media (max-width: 768px) {
-    #map-container{
-        display: none;
+body {
+        font-family: 'Gosha Sans', sans-serif;
+        font-weight: 900; /* Light */
     }
-    #p-yellow{
-        display: none;
+    
+    h1, h2, h3 {
+        font-family: 'Gosha Sans', sans-serif;
+        font-weight: 900;
     }
-    .btn-outline-secondary {
-    display: none;
-}
-.project-description{
-    display: none;
-}
-footer {
-        background-color: e9e9e9;
-        margin-top: 100px;
+    
+    p {
+        font-family: 'Gosha Sans', sans-serif;
+        font-weight: 300; 
     }
+    
+    small, .subtext {
+        font-family: 'Gosha Sans', sans-serif;
+        font-weight: 300; 
+        font-size: 14px; 
+    }
+    /* Estilo para o vídeo */
+.intro-video {
+    position: fixed;  /* Posiciona o vídeo fixo na tela */
+    top: 0;
+    left: 0;
+    width: 100vw;     /* 100% da largura da tela */
+    height: 100vh;    /* 100% da altura da tela */
+    object-fit: cover; /* Faz o vídeo cobrir toda a tela sem distorcer */
+    z-index: 9999;     /* Garante que o vídeo fique sobre outros elementos */
+    opacity: 1;
+    transition: opacity 1s ease-out; /* Transição suave para o efeito de desaparecimento */
+}
 
+/* Classe para esconder o vídeo */
+.intro-video.hidden {
+    opacity: 0;  /* Torna o vídeo invisível */
 }
+
+.titulo h1{
+    margin-top: 100px;
+}
+
+    
     </style>
 </head>
 
 <body>
-       <!-- NavBar -->
+    <video id="intro-video" class="intro-video" autoplay muted>
+        <source src="../assets/studio-intro.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <script>window.addEventListener('load', () => {
+        const video = document.getElementById('intro-video');
+        const today = new Date().toISOString().split('T')[0]; // Obtém a data no formato YYYY-MM-DD
+        const lastShownDate = localStorage.getItem('introVideoLastShown'); // Verifica se o vídeo já foi exibido hoje
+    
+        if (lastShownDate !== today) {
+            // Exibe o vídeo e atualiza a data no localStorage
+            localStorage.setItem('introVideoLastShown', today);
+    
+            // Aguarda 2 segundos antes de esconder o vídeo
+            setTimeout(() => {
+                video.style.opacity = 0; // Torna o vídeo invisível
+                video.style.transition = 'opacity 1s ease-out'; // Transição suave
+                setTimeout(() => {
+                    video.style.display = 'none'; // Remove o vídeo da tela
+                }, 1000); // Espera a transição de 1 segundo antes de aplicar display: none
+            }, 2000); // 2000 milissegundos = 2 segundos
+        } else {
+            // Remove o vídeo imediatamente se já foi exibido
+            video.style.display = 'none';
+        }
+    });
+    </script>
+    
        <div id="navbar-container"></div>
        <script src="../js/navbar.js"></script>
-   
-    <div class="fixed-navbar-space"></div>
-
-    <div class="project-description">
-        <img src="../assets/navbar/logo-studio.png" alt="">
-        <h1 id="p-yellow">Explore our latest projects</h1> 
-        <br><br>
-    </div>
-    
-  <!--  <div class="d-flex justify-content-center mb-4 zoom-sensitive-buttons">
-        <a href="how-it-works.html" class="btn btn-outline-secondary mr-2">How it Works</a>
-        <button class="btn btn-outline-secondary" onclick="toggleMap()">View Map</button>
-    </div>-->
-    
-    
-   <!-- <div id="map-container" style="margin-top: 20px; position: relative; display: none; opacity: 0; transition: opacity 0.5s;">
-        <img src="../assets/geral/map.png" alt="Mapa da Irlanda">
-        
-   
-        
-        <div class="custom-pin" onclick="showPinInfo('pin2')" style="top: 230px; left: 1000px;"></div>
-        <div class="custom-pin" onclick="showPinInfo('pin3')" style="top: 250px; left: 980px;"></div>
-        <div class="custom-pin" onclick="showPinInfo('pin4')" style="top: 150px; left: 950px;"></div>
      
-        <div class="custom-pin" onclick="showPinInfo('pin6')" style="top: 230px; left: 970px;"></div>
-    
-        <div class="custom-pin" onclick="showPinInfo('pin8')" style="top: 320px; left: 1100px;"></div>
 
-        <div class="custom-pin" onclick="showPinInfo('pin10')" ></div>
+ 
+  
 
-    
-        <div id="pin1-info" class="point-info">
-            <img src="../assets/geral/projects (1).png" alt="New Location 1">
-            <h1>New Location 1</h1>
-            <button class="btn btn-outline-secondary" onclick="contactPage()">Contact Us</button>
-        </div>
-        <div id="pin2-info" class="point-info">
-            <img src="../assets/geral/projects (11).png" alt="New Location 2">
-            <h1>District Beavertown</h1>
-             <p></p><i class="bi bi-geo-alt-fill"></i>18 Eustace St, Temple Bar, Dublin 2, D02 WR53, Irlanda</p>
-             <button class="btn btn-outline-secondary" onclick="window.location.href='district.html'">Explore project</button>
-        </div>
-        <div id="pin3-info" class="point-info">
-            <img src="../assets/geral/projects (3).png" alt="New Location 3">
-            <h1>CHARLIES</h1>
-             <p></p><i class="bi bi-geo-alt-fill"></i>8 South Great George's Street, Dublin, Ireland 2</p>
-             <button class="btn btn-outline-secondary" onclick="window.location.href='charlie.html'">Explore project</button>
-        </div>
-        <div id="pin4-info" class="point-info">
-            <img src="../assets/geral/projects (4).png" alt="New Location 4">
-            <h1>BACK PAGE</h1>
-            <p>New facade, tables and benches!</p><i class="bi bi-geo-alt-fill"></i>199 Phibsborough Rd, Phibsborough, Dublin 7, D07 A0X2</p>
-            <button class="btn btn-outline-secondary" onclick="window.location.href='backpage.html'">Explore project</button>
-        </div>
-        <div id="pin5-info" class="point-info">
-            <img src="../assets/geral/projects (5).png" alt="New Location 5">
-            <h1>New Location 5</h1>
-            <button class="btn btn-outline-secondary" onclick="contactPage()">Contact Us</button>
-        </div>
-        <div id="pin6-info" class="point-info">
-            <img src="../assets/geral/projects (6).png" alt="New Location 6">
-            <h1>ACHARA</h1>
-            <p>Restaurant complete ambience design</p>
-             <p></p><i class="bi bi-geo-alt-fill"></i>14-18, Aston Quay, Temple Bar, Dublin, D02 FV38</p>
-             <button class="btn btn-outline-secondary" onclick="window.location.href='achara.html'">Explore project</button>
-        </div>
-      
-        <div id="pin8-info" class="point-info">
-            <img src="../assets/geral/projects (8).png" alt="New Location 8">
-            <h1>JUNIORS</h1>
-            <p>Restaurant, Tables and Benches! Complete ambience design</p>
-             <p></p><i class="bi bi-geo-alt-fill"></i>2 Bath Ave, Dublin 4, Irelanda</p>
-             <button class="btn btn-outline-secondary" onclick="window.location.href='juniors.html'">Explore project</button>
-        </div>
-        
-        <div id="pin10-info" class="point-info">
-            <img src="../assets/geral/projects (1).png" alt="LOOT Dublin">
-            <h1>LOOT Dublin</h1>
-            <p>Complete renovation of a Retail Shop</p>
-             <p></p><i class="bi bi-geo-alt-fill"></i>23 Drury St, Dublin 2, D02 YE26</p>
-             <button class="btn btn-outline-secondary" onclick="window.location.href='loot.html'">Explore project</button>
-
-        </div>
-    </div>-->
-
-    <script>
-        function toggleMap() {
-            const mapContainer = document.getElementById("map-container");
-            mapContainer.style.display = mapContainer.style.display === "none" ? "block" : "none";
-            setTimeout(() => {
-                mapContainer.style.opacity = mapContainer.style.display === "block" ? 1 : 0;
-            }, 10);
-        }
-
-        function showPinInfo(pinId) {
-            document.querySelectorAll('.point-info').forEach(div => {
-                div.classList.remove('show');
-            });
-            const pinInfo = document.getElementById(`${pinId}-info`);
-            if (pinInfo) {
-                pinInfo.classList.add('show');
-            }
-        }
-
-        function contactPage() {
-            window.location.href = "contact.html";
-        }
-    </script>
-    <div class="other-project-gallery">
-        <div class="other-project-item">
-            <a href="mandy.html"><img src="../assets/mandy/mandy (7).png" alt="Other Project Image 1"></a>
-            <p><a href="interior.html" id="black-span">Interior Design</a>
-                <span class="dot"></span>Mandy</p>
-            <h2>Full design concept for this bakery.</h2>
-            <hr>
-        </div>
-        <div class="other-project-item">
-            <a href="limerick.html"><img src="../assets/limerick/limerick (4).png" alt="Other Project Image 2"></a>
-            <p><a href="interior.html" id="black-span">Interior Design</a>
-                <span class="dot"></span>Limerick</p>
-            <h2>Interior design, complete renovation and concept.</h2>
-            <hr>
-        </div>
-    </div>
-      <div class="other-project-gallery">
-        <div class="other-project-item">
-            <a href="achara.html"><img src="../assets/geral/projects (6).png" alt="Other Project Image 1"></a>
-            <p><a href="restaurants.html" id="black-span">Restaurants</a>
-                <span class="dot"></span>Achara Dublin</p>
-            <h2>Elegance and comfort side by side, with carefully designed elements.</h2>
-            <hr>
-        </div>
-        <div class="other-project-item">
-            <a href="charlie.html"><img src="../assets/geral/projects (3).png" alt="Other Project Image 2"></a>
-            <p><a href="restaurants.html" id="black-span">Restaurants</a>
-                <span class="dot"></span>Charlie's Restaurant</p>
-            <h2>Colorful, revitalized and detailed: Charlies is a project with excellent detail results.</h2>
-            <hr>
-        </div>
-    </div>
-
-    <div class="other-project-gallery">
-        <div class="other-project-item">
-            <a href="loot.html"><img src="../assets/geral/projects (1).png" alt="Other Project Image 1"></a>
-            <p><a href="retail.html" id="black-span">Retail</a>
-                <span class="dot"></span>LOOT Dublin</p>
-            <h2>Complete retail shop</h2>
-            <hr>
-        </div>
-        <div class="other-project-item">
-            <a href="district.html"><img src="../assets/geral/projects (11).png" alt="Other Project Image 2"></a>
-            <p><a href="design-project.html" id="black-span">Interior Design</a>
-                <span class="dot"></span>District</p>
-            <h2>Creative. Colorful. And impress!</h2>
-            <hr>
-        </div>
-    </div>
-
-    <div class="other-project-gallery">
-        <div class="other-project-item">
-            <a href="juno.html"><img src="../assets/geral/projects (12).png" alt="Other Project Image 2"></a>
-            <p><a href="design-project.html" id="black-span">Interior Design</a>
-                <span class="dot"></span>JUNO</p>
-            <h2>Internal ambience designed for ellegance and confort.</h2>
-            <hr>
-        </div>
-        <div class="other-project-item">
-            <a href="axis.html"><img src="../assets/geral/projects (5).png" alt="Other Project Image 1"></a>
-            <p><a href="interior-design.html" id="black-span">Interior Design</a>
-                <span class="dot"></span>Axis</p>
-            <h2>A stunning reception area and office for the Axis community center.</h2>
-            <hr>
-        </div>
-    </div>
-
-    <div class="other-project-gallery">
-        <!--<div class="other-project-item">
-            <a href="handsome.html"><img src="../assets/geral/projects (9).png" alt="Other Project Image 2"></a>
-            <p><a href="restaurants.html" id="black-span">Restaurants</a>
-                <span class="dot"></span>HandSome Burger</p>
-            <h2>Elegant design project balancing comfort with aesthetic appeal.</h2>
-            <hr>
-        </div>-->
-        <div class="other-project-item">
-            <a href="juniors.html"><img src="../assets/geral/projects (8).png" alt="Other Project Image 2"></a>
-            <p><a href="restaurants.html" id="black-span">Restaurants</a>
-                <span class="dot"></span>Juniors</p>
-            <h2>Relaxed atmosphere designed for enjoying your culinary experience.</h2>
-            <hr>
-        </div>
-        <div class="other-project-item">
-            <a href="backpage.html"><img src="../assets/geral/projects (4).png" alt="Other Project Image 1"></a>
-            <p><a href="interior-design.html" id="black-span">Interior Design</a>
-                <span class="dot"></span>BackPage</p>
-            <h2>Rebuilt with brightening windows and a modern, spacious ambiance.</h2>
-            <hr>
-        </div>
-    </div>
-
-    <div class="other-project-gallery">
-        <!--<div class="other-project-item">
-            <a href="olivez.html"><img src="../assets/geral/projects (7).png" alt="Other Project Image 1"></a>
-            <p><a href="restaurants.html" id="black-span">Restaurants</a>
-                <span class="dot"></span>Olivez</p>
-            <h2>Exquisite atmosphere for culinary delights with a twist of authenticity.</h2>
-            <hr>
-        </div>-->
+    <div class="projetos-studio-forja">
+         <!-- Título da seção -->
+    <div class="titulo" style="text-align: center; margin-bottom: 20px;">
+       
+       <br><br> <h1>Projects</h1>
        
     </div>
-        <script>
-            function checkZoomLevel() {
-                const buttonContainer = document.querySelector('.zoom-sensitive-buttons');
-        
-                // Verifica o nível de zoom comparando window.innerWidth com screen.width
-                const zoomRatio = window.innerWidth / window.screen.width;
+
+   <!-- Filtros de pesquisa -->
+<div class="filtros" style="text-align: center; margin-bottom: 20px;">
+    <button class="filter-btn active" data-category="all">All</button>
+    <button class="filter-btn" data-category="interior-design">Interior Design</button>
+    <button class="filter-btn" data-category="bar">Bar</button>
+    <button class="filter-btn" data-category="restaurant">Restaurant</button>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const projectItems = document.querySelectorAll('.other-project-item');
+
+  // Função para filtrar projetos
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const category = button.getAttribute('data-category');
+
+      // Adiciona a classe "active" no botão selecionado
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      // Filtra as divs de acordo com a categoria
+      projectItems.forEach(item => {
+        if (category === 'all' || item.classList.contains(category)) {
+          item.style.display = 'block'; // Exibe o item
+        } else {
+          item.style.display = 'none'; // Oculta o item
+        }
+      });
+    });
+  });
+});
+const filterButtons = document.querySelectorAll('.filter-btn');
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+    });
+});
+
+</script>
+
+<!-- Galeria de projetos -->
+<div class="other-project-gallery">
+    <div class="other-project-item interior-design" >
+        <div id="carouselExampleMandy" class="carousel slide" data-bs-ride="false">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="mandy.html">
+                        <img src="../assets/mandy/mandy (7).png" class="d-block w-100" alt="Other Project Image 1">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="mandy.html">
+                        <img src="../assets/mandy/mandy (6).png" class="d-block w-100" alt="Other Project Image 2">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="mandy.html">
+                        <img src="../assets/mandy/mandy (4).png" class="d-block w-100" alt="Other Project Image 3">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="mandy.html">
+                        <img src="../assets/mandy/mandy (4).png" class="d-block w-100" alt="Other Project Image 3">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="mandy.html">
+                        <img src="../assets/mandy/mandy (5).png" class="d-block w-100" alt="Other Project Image 3">
+                    </a>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleMandy" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleMandy" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <br>
+        <p><span id="black-span">Interior Design</span>
+        <h2>Mandy</h2>
+        <br>
+    </div>
+    <div class="other-project-item bar restaurant" >
+        <div id="carouselExampleLimerick" class="carousel slide" data-bs-ride="false">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="limerick.html">
+                        <img src="../assets/limerick/limerick (4).png" class="d-block w-100" alt="Other Project Image 1">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="limerick.html">
+                        <img src="../assets/limerick/limerick (12).png" class="d-block w-100" alt="Other Project Image 2">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="limerick.html">
+                        <img src="../assets/limerick/limerick (13).png" class="d-block w-100" alt="Other Project Image 2">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="limerick.html">
+                        <img src="../assets/limerick/limerick (9).png" class="d-block w-100" alt="Other Project Image 2">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="limerick.html">
+                        <img src="../assets/limerick/limerick (5).png" class="d-block w-100" alt="Other Project Image 2">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="limerick.html">
+                        <img src="../assets/limerick/limerick (5).png" class="d-block w-100" alt="Other Project Image 2">
+                    </a>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleLimerick" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleLimerick" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <br>
+        <p><span id="black-span">Restaurant <span class="dot"></span> Bar</span>
+        <h2>Courtyard Limerick</h2>
+        <br>
+    </div>
+</div>
+<div class="other-project-gallery">
+    <div class="other-project-item restaurant interior-design bar">
+        <div id="carouselExampleJuno"  data-bs-ride="false" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="juno.html">
+                        <img src="../assets/juno/juno (2).png" class="d-block w-100" alt="Juno Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="juno.html">
+                        <img src="../assets/juno/juno (3).png" class="d-block w-100" alt="Juno Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="juno.html">
+                        <img src="../assets/juno/juno (1).png" class="d-block w-100" alt="Juno Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="juno.html">
+                        <img src="../assets/juno/juno (4).png" class="d-block w-100" alt="Juno Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="juno.html">
+                        <img src="../assets/juno/juno (5).png" class="d-block w-100" alt="Juno Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="juno.html">
+                        <img src="../assets/juno/juno (7).png" class="d-block w-100" alt="Juno Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="juno.html">
+                        <img src="../assets/juno/juno (6).png" class="d-block w-100" alt="Juno Project">
+                    </a>
+                </div>
                 
-                // Ajuste a condição conforme necessário (0.98 e 1.02 permitem uma pequena margem de erro)
-                const isZoom100 = zoomRatio > 0.98 && zoomRatio < 1.02;
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleJuno" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleJuno" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <br>
+        <span id="black-span">Restaurant <span class="dot"></span> Bar <span class="dot"></span> Interior Design</span>
+            
+        <h2>Juno</h2>
+       <br>
+    </div>
+    <div class="other-project-item">
+        <div id="carouselExampleAxis"  data-bs-ride="false" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="axis.html">
+                        <img src="../assets/axis/axis.png" class="d-block w-100" alt="Axis Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="axis.html">
+                        <img src="../assets/axis/technical-axis (2).jpg" class="d-block w-100" alt="Axis Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="axis.html">
+                        <img src="../assets/axis/technical-axis (3).jpg" class="d-block w-100" alt="Axis Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="axis.html">
+                        <img src="../assets/axis/technical-axis (4).jpg" class="d-block w-100" alt="Axis Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="axis.html">
+                        <img src="../assets/axis/technical-axis (5).jpg" class="d-block w-100" alt="Axis Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="axis.html">
+                        <img src="../assets/axis/technical-axis (6).jpg" class="d-block w-100" alt="Axis Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="axis.html">
+                        <img src="../assets/axis/technical-axis (1).jpg" class="d-block w-100" alt="Axis Project">
+                    </a>
+                </div>
+
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAxis" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAxis" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <br>
+        <span id="black-span">Interior Design</span>
+            
+        <h2>Axis</h2>
+       <br>
+    </div>
+</div>
+
+
+<div class="other-project-gallery">
+    <div class="other-project-item restaurant">
+        <div id="carouselExampleAchara"  data-bs-ride="false" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="achara.html">
+                        <img src="../assets/achara/achara (3).png" class="d-block w-100" alt="Other Project Image 1">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="achara.html">
+                        <img src="../assets/achara/achara (9).png" class="d-block w-100" alt="Other Project Image 1">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="achara.html">
+                        <img src="../assets/achara/achara (7).png" class="d-block w-100" alt="Other Project Image 1">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="achara.html">
+                        <img src="../assets/achara/achara (1).png" class="d-block w-100" alt="Other Project Image 2">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="achara.html">
+                        <img src="../assets/achara/achara (8).png" class="d-block w-100" alt="Other Project Image 1">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="achara.html">
+                        <img src="../assets/achara/achara (10).png" class="d-block w-100" alt="Other Project Image 1">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="achara.html">
+                        <img src="../assets/achara/achara (3).png" class="d-block w-100" alt="Other Project Image 1">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="achara.html">
+                        <img src="../assets/achara/achara (4).png" class="d-block w-100" alt="Other Project Image 1">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="achara.html">
+                        <img src="../assets/achara/achara (5).png" class="d-block w-100" alt="Other Project Image 1">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="achara.html">
+                        <img src="../assets/achara/achara (6).png" class="d-block w-100" alt="Other Project Image 1">
+                    </a>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAchara" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAchara" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <br>
+        <p><span id="black-span">Restaurants</span>
+        <h2>Achara</h2>
+        <br>
+    </div>
+
+    <div class="other-project-item restaurant">
+        <div id="carouselExampleCharlies"  data-bs-ride="false" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="charlie.html">
+                        <img src="../assets/charlie/render-charlie (3).png" class="d-block w-100" alt="Other Project Image 2">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="charlie.html">
+                        <img src="../assets/charlie/render-charlie (2).png" class="d-block w-100" alt="Other Project Image 2">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="charlie.html">
+                        <img src="../assets/charlie/render-charlie (1).png" class="d-block w-100" alt="Other Project Image 2">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="charlie.html">
+                        <img src="../assets/charlie/charlie-results (10).png" class="d-block w-100" alt="Other Project Image 2">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="charlie.html">
+                        <img src="../assets/charlie/charlie-results (9).png" class="d-block w-100" alt="Other Project Image 2">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="charlie.html">
+                        <img src="../assets/charlie/charlie-results (8).png" class="d-block w-100" alt="Other Project Image 2">
+                    </a>
+                </div>
+              
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCharlies" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCharlies" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <br>
+        <p><span id="black-span">Restaurants</span>
+           
+        <h2>Charlie's Restaurant</h2>
+        <br>
+    </div>
+</div>
+
+<div class="other-project-gallery">
+    <div class="other-project-item interior-design">
+        <div id="carouselExampleLoot"  data-bs-ride="false" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="loot.html">
+                        <img src="../assets/loot/loot-results (2).png" class="d-block w-100" alt="Other Project Image 1">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="loot.html">
+                        <img src="../assets/loot/loot-results (3).png" class="d-block w-100" alt="Other Project Image 1">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="loot.html">
+                        <img src="../assets/loot/loot-results (4).png" class="d-block w-100" alt="Other Project Image 1">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="loot.html">
+                        <img src="../assets/loot/loot-results (5).png" class="d-block w-100" alt="Other Project Image 1">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="loot.html">
+                        <img src="../assets/loot/loot-results (6).png" class="d-block w-100" alt="Other Project Image 1">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="loot.html">
+                        <img src="../assets/loot/loot-results (7).png" class="d-block w-100" alt="Other Project Image 1">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="loot.html">
+                        <img src="../assets/loot/loot-results (8).png" class="d-block w-100" alt="Other Project Image 1">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="loot.html">
+                        <img src="../assets/loot/loot-results (9).png" class="d-block w-100" alt="Other Project Image 1">
+                    </a>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleLoot" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleLoot" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div><br>
+        <p><span id="black-span">Interior Design</span>
+         
+        <h2>LOOT</h2>
+        <br>
+    </div>
+    <div class="other-project-item interior-design">
+        <div id="carouselExampleDistrict"  data-bs-ride="false" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="district.html">
+                        <img src="../assets/district/district (1).png" class="d-block w-100" alt="Other Project Image 2">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="district.html">
+                        <img src="../assets/district/district.jpg" class="d-block w-100" alt="Other Project Image 2">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="district.html">
+                        <img src="../assets/district/district (2).png" class="d-block w-100" alt="Other Project Image 2">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="district.html">
+                        <img src="../assets/district/district (3).png" class="d-block w-100" alt="Other Project Image 2">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="district.html">
+                        <img src="../assets/district/district (4).png" class="d-block w-100" alt="Other Project Image 2">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="district.html">
+                        <img src="../assets/district/district (5).png" class="d-block w-100" alt="Other Project Image 2">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="district.html">
+                        <img src="../assets/district/district (6).png" class="d-block w-100" alt="Other Project Image 2">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="district.html">
+                        <img src="../assets/district/district (7).png" class="d-block w-100" alt="Other Project Image 2">
+                    </a>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDistrict" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDistrict" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <br>
+        <p><span id="black-span">Interior Design</span>
+           
+        <h2>District Beavertown</h2>
+     <br>
+    </div>
+</div>
+
+
+
+<!--<div class="other-project-gallery">
+    <div class="other-project-item restaurant">
+        <div id="carouselExamplethyme-out" data-bs-ride="false" class="carousel slide">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="thyme-out.html">
+                        <img src="../assets/thyme-out/thyme-out (9).jpg" class="d-block w-100" alt="thyme-out Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="thyme-out.html">
+                        <img src="../assets/thyme-out/thyme-out (3).jpg" class="d-block w-100" alt="thyme-out Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="thyme-out.html">
+                        <img src="../assets/thyme-out/thyme-out (1).jpg" class="d-block w-100" alt="thyme-out Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="thyme-out.html">
+                        <img src="../assets/thyme-out/thyme-out (4).jpg" class="d-block w-100" alt="thyme-out Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="thyme-out.html">
+                        <img src="../assets/thyme-out/thyme-out (5).jpg" class="d-block w-100" alt="thyme-out Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="thyme-out.html">
+                        <img src="../assets/thyme-out/thyme-out (7).jpg" class="d-block w-100" alt="thyme-out Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="thyme-out.html">
+                        <img src="../assets/thyme-out/thyme-out (6).jpg" class="d-block w-100" alt="thyme-out Project">
+                    </a>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExamplethyme-out" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExamplethyme-out" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <br>
+        <span id="black-span">Restaurant</span>
+        <h2>Thyme Out</h2>
+        <br>
+    </div>
+    <div class="other-project-item interior-design">
+        <div id="carouselExampleolivez" data-bs-ride="false" class="carousel slide">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="olivez.html">
+                        <img src="../assets/olivez/olivez (7).png" class="d-block w-100" alt="olivez Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="olivez.html">
+                        <img src="../assets/olivez/olivez (1).png" class="d-block w-100" alt="olivez Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="olivez.html">
+                        <img src="../assets/olivez/olivez (2).png" class="d-block w-100" alt="olivez Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="olivez.html">
+                        <img src="../assets/olivez/olivez (3).png" class="d-block w-100" alt="olivez Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="olivez.html">
+                        <img src="../assets/olivez/olivez (4).png" class="d-block w-100" alt="olivez Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="olivez.html">
+                        <img src="../assets/olivez/olivez (5).png" class="d-block w-100" alt="olivez Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="olivez.html">
+                        <img src="../assets/olivez/olivez (6).png" class="d-block w-100" alt="olivez Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="olivez.html">
+                        <img src="../assets/olivez/olivez (7).png" class="d-block w-100" alt="olivez Project">
+                    </a>
+                </div>
+               
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleolivez" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleolivez" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <br>
+        <span id="black-span">Restaurant</span>
+        <h2>Olivez</h2>
+        <br>
+    </div>
+</div>
+-->
+
+
+<div class="other-project-gallery">
+    <div class="other-project-item restaurant">
+        <div id="carouselExampleJuniors"  data-bs-ride="false" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="juniors.html">
+                        <img src="../assets/juniors/results-junior (2).png" class="d-block w-100" alt="Juniors Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="juniors.html">
+                        <img src="../assets/juniors/results-junior (1).png" class="d-block w-100" alt="Juniors Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="juniors.html">
+                        <img src="../assets/juniors/results-junior (8).png" class="d-block w-100" alt="Juniors Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="juniors.html">
+                        <img src="../assets/juniors/results-junior (5).png" class="d-block w-100" alt="Juniors Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="juniors.html">
+                        <img src="../assets/juniors/results-junior (4).png" class="d-block w-100" alt="Juniors Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="juniors.html">
+                        <img src="../assets/juniors/results-junior (6).png" class="d-block w-100" alt="Juniors Project">
+                    </a>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleJuniors" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleJuniors" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <br>
+        <p><span id="black-span">Restaurant</span>
         
-                // Exibe ou oculta a div com base no nível de zoom
-                if (isZoom100) {
-                    buttonContainer.style.display = 'flex';
-                } else {
-                    buttonContainer.style.display = 'none';
-                }
-            }
+        <h2>Juniors</h2>
+      <br>
+    </div>
+    <div class="other-project-item interior-design">
+        <div id="carouselExampleBackPage"  data-bs-ride="false" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="backpage.html">
+                        <img src="../assets/backpage/render-backpage (1).png" class="d-block w-100" alt="Back Page Project">
+                    </a>
+                </div>
+            
+                <div class="carousel-item">
+                    <a href="backpage.html">
+                        <img src="../assets/backpage/render-backpage (3).png" class="d-block w-100" alt="Back Page Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="backpage.html">
+                        <img src="../assets/backpage/render-backpage (4).png" class="d-block w-100" alt="Back Page Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="backpage.html">
+                        <img src="../assets/backpage/render-backpage (5).png" class="d-block w-100" alt="Back Page Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="backpage.html">
+                        <img src="../assets/backpage/1.png" class="d-block w-100" alt="Back Page Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="backpage.html">
+                        <img src="../assets/backpage/2.png" class="d-block w-100" alt="Back Page Project">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="backpage.html">
+                        <img src="../assets/backpage/3.png" class="d-block w-100" alt="Back Page Project">
+                    </a>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleBackPage" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleBackPage" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <br>
+        <p><span id="black-span">Interior Design</span>
         
-            // Verifica o zoom ao carregar a página e ao redimensionar a janela
-            window.addEventListener('load', checkZoomLevel);
-            window.addEventListener('resize', checkZoomLevel);
-        </script>
-        
+        <h2>BackPage</h2>
+      <br>
+    </div>
+
+</div>
+</div>
+  
+  
+     
     
     
 <!--Footer-->
 <div id="footer-container"></div>
 <script src="../js/footer.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+

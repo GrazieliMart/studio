@@ -3,9 +3,7 @@
     margin: 0;
     padding: 0;
 }
-body {
-    overflow-y: hidden;
-}
+
 #loading-screen {
     position: fixed;
     top: 0;
@@ -59,31 +57,39 @@ body {
     display: flex;
     width: 100%;
     background-color: #ffffff;
-    height: 100vh;
-    margin: 0;
-    max-width: revert-layer;
+    height: 900px;
     justify-content: center;
     padding: 0;
+    max-width: 900px;
+    margin-top: 200px;
 }
 
 .form-section {
-    flex: 1;
-    display: flex;
+    /* flex: 1; */
+    display: flex
+;
+    margin-top: 100px;
     flex-direction: column;
     justify-content: center;
     padding: 20px;
     background-color: #fff;
 }
-
 .image-section {
     height: 100%;
-    width: 50%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f5f5f5;
+    background-color: #f7f6f0;
 }
-
+.image-section form{
+    margin-left: 50px;
+    margin-top: -400px;
+    background-color: #ccc;
+}
+.image-section form input {
+    font-family: 'Montserrat', sans-serif;
+}
 .image-section img {
     width: 100%;
     height: 100%;
@@ -99,11 +105,12 @@ body {
     padding: 20px;
 }
 .question-page.active {
-text-align: left;
-display: inline-block;
-margin-left: -15%;
-position: absolute;
-display: inline-block;
+    text-align: center;
+    display: inline-block;
+    margin-left: 0%;
+    position: relative;
+    display: flex
+;
 }
 .question {
     font-size: 40px;
@@ -112,12 +119,13 @@ display: inline-block;
 .form-control {
     width: 100%;
     border-radius: 0px;
-    max-width: 300px;
+    max-width: 400px;
     padding: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
+    margin-top: 50px;
     font-size: 16px;
-    border: none; /* Remove as bordas padrão */
-    border-bottom: 2px solid #ccc; /* Borda inferior de 2px */
+    border: none;
+    border-bottom: 2px solid #ccc;
     transition: border-bottom-color 0.3s ease, border-bottom-width 0.3s ease;
 }
 .form-control:focus {
@@ -131,33 +139,37 @@ display: inline-block;
     transition: opacity 0.3s ease; /* Transição suave para o placeholder */
 }
 .btn {
-padding: 10px 20px;
-font-size: 16px;
-cursor: pointer;
-
-color: #fff;
-background-color: #ffc107;
-border-radius: 25px;
-border: 2px solid #ffc107;
-transition: background-color 0.3s ease;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #5f5f5f;
+    border-radius: 2px;
+    border: 2px solid #5f5f5f;
+    transition: background-color 0.3s ease;
+}
+.align-itens{
+    gap: 20px;
 }
 .btn:hover {
-    color: #ffc107;
-    border: 2px solid #ffc107;
+    color: #3a3a3a;
+    border: 2px solid #3a3a3a;
     background-color: #ffffff;
 }
 .align-contact {
-    margin-top: -50%;
-    margin-left: 20%;
+    margin-top: 0%;
+    margin-left: 0%;
     justify-self: left;
-    text-align: left;
+    text-align: center;
 }
 .align-contact span {
     color: #ffc107;
 }
 .align-contact p {
-    font-size: 25px;
+    font-size: 17px;
+    font-family: 'Montserrat', sans-serif;
 }
+
 .align-contact h1 {
     font-size: 55px;
 }
@@ -174,16 +186,17 @@ transition: background-color 0.3s ease;
 }
 
 @media (max-width: 768px) {
-    body{
-        overflow-x: hidden;
-        overflow-y: hidden;
-    }
+  
     .question-page.active {
         text-align: left;
         display: inline-block;
         margin-left: 0;
         position: relative;
         display: inline-block;
+    }
+    .question {
+        font-size: 24px;
+        margin-bottom: 20px;
     }
     #loading-screen {
         position: relative;
@@ -198,10 +211,11 @@ transition: background-color 0.3s ease;
         z-index: 10;
     }
     .container {
-        display: flex;
+        display: flex
+;
         width: 100%;
         background-color: #ffffff;
-        height: 70%;
+        height: 100%;
         margin: 0;
         max-width: revert-layer;
         justify-content: center;
@@ -210,7 +224,7 @@ transition: background-color 0.3s ease;
     }
     .align-contact {
         margin-top: 0%;
-        display: none;
+        display: inline;
         margin-left: 0;
         justify-self: left;
         text-align: left;

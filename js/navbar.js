@@ -63,27 +63,6 @@ const faixaInformativa = document.querySelector('.faixa-informativa');
 window.addEventListener('scroll', function () {
 const currentScrollPosition = window.pageYOffset;
 
-if (currentScrollPosition < lastScrollPosition) {
-    // Mostra e fixa a faixa informativa e a navbar ao rolar para cima
-    faixaInformativa.style.position = 'fixed';
-    faixaInformativa.style.top = '0';
-    faixaInformativa.style.width = '100%';
-    faixaInformativa.style.transform = 'translateY(0)';
-    faixaInformativa.style.transition = 'transform 0.3s ease';
-
-    navbar.style.position = 'fixed';
-    navbar.style.top = '30px'; // Ajuste de 30px para a navbar ficar logo abaixo da faixa
-    navbar.style.width = '100%';
-    navbar.style.transform = 'translateY(0)';
-    navbar.style.transition = 'transform 0.3s ease';
-    isFixed = true;
-} else if (currentScrollPosition > lastScrollPosition && isFixed) {
-    // Esconde a faixa informativa e a navbar ao rolar para baixo
-    faixaInformativa.style.transform = 'translateY(-100%)';
-    navbar.style.transform = 'translateY(-130%)';
-    isFixed = false;
-}
-
 lastScrollPosition = currentScrollPosition;
 });
 
