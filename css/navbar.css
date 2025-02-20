@@ -522,7 +522,7 @@ nav .nav-button{
         opacity: 0;
         visibility: hidden;
         position: fixed;
-        top: 12%;
+        top: 11%;
         text-align: left;
         right: 0;
         width: 100%;
@@ -535,7 +535,6 @@ nav .nav-button{
         transition: opacity 0.3s ease, transform 0.3s ease;
         z-index: 2;
     }
-
     .nav-links.active {
         opacity: 1;
         visibility: visible;

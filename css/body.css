@@ -377,12 +377,13 @@ transition: filter 0.3s ease;
     color: #747474;
 } 
 .image-container1 {
-
-position: relative;
-margin-top: 10%;
-display: flex;
-justify-self: center;
-width: 70%;
+    position: relative;
+    margin-top: 10%;
+    display: flex
+;
+    margin-bottom: 100px;
+    justify-self: center;
+    width: 70%;
 }
 .image-container1 button{
 color: #ffffff;

@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.cdnfonts.com/css/futura-pt" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/futura-pt" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/futura-pt" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://fonts.cdnfonts.com/css/futura-pt" rel="stylesheet">    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.cdnfonts.com/css/futura-pt" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/navbar/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/body.css">
+    <title>How it Works - Studio Forja</title>
+    <style>
+      
+        .footer-section {
+    text-align: left;
+    width: 200px;
+    margin: 20px;
+}
+        
+       .container {
+        position: relative;
+        width: 100%;
+        max-width: none;
+        height: 940px;
+        background-image: url('assets/index/index (1).png'); /* Define a imagem inicial */
+        background-size: cover;
+        background-position: center;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: background-image 0.5s ease;
+        display: flex; /* Adiciona flex para centralizar o conteúdo */
+        align-items: center; /* Centraliza verticalmente o conteúdo */
+        justify-content: center; /* Centraliza horizontalmente o conteúdo */
+        text-align: center;
+    }
+
+    .bubble-menu {
+        position: absolute;
+        bottom: 20px;
+       
+        display: flex;
+        gap: 20px;
+        z-index: 10;
+    }
+
+    .bubble {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #00000000;
+        color: #fff;
+        display: flex;
+        align-items: center;
+       
+       
+        justify-content: center;
+        cursor: pointer;
+        font-size: 0.8em;
+        text-align: center;
+        transition: background-color 0.3s ease;
+    }
+
+    .bubble:hover {
+     background-color: #6d676700;
+       
+    }
+
+    .content {
+        color: #fff;
+        display: none;
+        width: 600px;
+        text-align: left;
+        margin-left: -50%;
+        padding: 20px;left: 0px;
+        z-index: 5;
+    }
+
+    .content.active {
+        display: block;
+    }
+
+    .content img {
+        max-width: 70%; /* Ajuste para centralizar */
+        height: auto;
+        display: none;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+    .content h1{
+        font-size: 105px;
+    }
+    .content h2 {
+        
+        margin-top: 10px; /* Reduzido para aproximar o título */
+    }
+    .icons-container-boxes{
+        display: flex;
+        justify-content: center;
+        gap: 70px;
+    }
+    .icons-container-tittle {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    padding: 20px 500px;
+    color: #ededed;
+}
+.icons-container span{
+    color: #ffc107;
+}
+    .icons-container {
+    display: grid
+;
+    justify-content: center;
+    gap: 70px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #010000;
+}
+.services-div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+  
+      .services-text {
+   width: 500px;
+   margin-left: 50px;
+    text-align: left;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+
+  .services-text {
+    width: 500px;
+    margin-left: 50px;
+    text-align: left;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .services-text.hidden {
+    opacity: 0;
+  }
+
+  .services-slider {
+    flex: 1;
+    max-width: 50%;
+  }
+
+  .div-slides1 {
+            position: relative;
+            height: 100vh;
+        }
+
+        .carousel-inner {
+            height: 100%;
+        }
+
+        .carousel-item {
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .carousel-indicators [data-bs-target] {
+            background-color: #fff;
+        }
+
+        .carousel-indicators .active {
+            background-color: #00000000;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: #00000000;
+        }
+
+  
+      .services-slider {
+        flex: 1;
+        max-width: 50%;
+      }
+      [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+    color: beige;
+    border: none;
+    background: #faebd700;
+}
+.other-project-item img {
+    width: 100%;
+    margin: 0px 0px 0px 0px;
+     max-width: none; 
+    height: auto;
+    display: block;
+}
+
+.icon-box {
+    width: 250px;
+    text-align: center;
+    height: 400px;
+    padding: 50px;
+    border: 2px solid transparent;
+    background: #fcfcfc;
+    border-radius: 0px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+#carouselExampleAutoplaying{
+    margin-top: -100px;
+}
+.container p {
+    color: #ffffff;
+}
+        .icon-box i {
+            font-size: 50px;
+            color: #ffc107;
+            margin-bottom: 10px;
+        }
+
+        .icon-box h1 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .icon-box p {
+            font-size: 14px;
+        }
+
+     /* Efeito de hover */
+.icon-box:hover {
+  cursor: default;
+    color: #000000;
+   
+}
+
+.icon-box:hover i {
+    color: #000000; /* Torna o ícone branco ao passar o mouse */
+}
+.icon-box:hover p {
+   
+}
+
+
+
+.hamburger {
+    display: none;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.hamburger.rotate {
+    transform: rotate(360deg); /* Rotaciona 360 graus */
+}
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 750px;
+    overflow: hidden;
+}
+/* Estilização do vídeo */
+.background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que o vídeo preencha todo o contêiner */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.clientes-carousel1 {
+    padding-bottom: 50px;
+    padding-top: 50px;
+    width: 100%;
+    overflow: hidden;
+    background-color: #0d0d0d;
+}
+        .carousel-inner1 {
+            display: flex;
+            transition: transform 0.5s ease-in-out; /* Transição suave */
+        }
+
+        .carousel-inner1 img {
+            width: 33.33%;  /* Largura das imagens para 3 imagens visíveis */
+            height: 200px; /* Altura das imagens */
+            object-fit: cover;
+            margin-right: 100px; /* Espaçamento entre as imagens */
+        }
+.image-container{
+    background-color: #010000;
+}
+
+/* Estilização do gradiente */
+.video-overlay {
+    position: absolute;
+    bottom: 0; /* Alinha o gradiente na parte inferior */
+    left: 0;
+    width: 100%;
+    height: 200px; /* Altura do gradiente; ajuste conforme necessário */
+    background: linear-gradient(to top, rgb(0, 0, 0),rgba(0, 0, 0, 0.795), rgba(0, 0, 0, 0));
+    pointer-events: none; /* Evita interferência com o gradiente */
+}
+
+.video-overlay-content {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #fff;
+    z-index: 1;
+}
+
+.video-overlay h1 {
+    font-size: 74px;
+    color: #fff;
+    margin: 0;
+}
+
+.video-overlay p {
+    color: #dfdfdf;
+    font-size: 16px;
+    margin: 5px 0 0;
+}
+/* Animação inicial */
+.animate-on-load {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+}/* Estado final da animação */
+.animate-on-load.visible {
+    opacity: 1;
+    transform: translateY(50px); /* Ajustado para uma posição mais acima */
+}
+
+/* Efeito parallax */
+.video-container h1,
+.video-container p {
+    transform: translateY(50px); /* Posição inicial mais elevada */
+    transition: transform 0.3s ease-out;
+}
+
+.video-container.parallax-active h1 {
+    transform: translateY(-150px); /* Deslocamento para cima no parallax */
+}
+
+.video-container.parallax-active p {
+    transform: translateY(-145px); /* Ajustado para alinhamento */
+}
+
+@media (max-width: 768px) {
+    .icons-container {
+    display: grid;
+    justify-content: center;
+    gap: 70px;
+    margin-top: 50px;
+}
+.container{
+    height: 400px;
+    margin-top: 100px;
+}
+.content h1 {
+    font-size: 35px;
+}
+.content {
+    color: #fff;
+    display: none;
+    width: 100%;
+    text-align: left;
+    margin-left: -0%;
+    padding: 20px;
+    left: 0px;
+    z-index: 5;
+}
+.hamburger {
+        position: fixed;
+        text-align: left;
+        display: block;
+        justify-content: center;
+        float: left;
+        left: 30px;
+        top: 40px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="faixa-informativa">
+        <a href="projects/contact.html">SCHEDULE AN APPOINTMENT <i>WITH US</i></a> 
+     </div>
+ 
+     <div class="overlay"></div> <!-- Overlay preta -->
+ 
+     <nav class="navbar">
+       
+        <ul class="nav-links" id="nav-links">
+            <li><a href="../index.html">HOME</a></li>
+          
+            <li><a href="projects/how-it-works.html">HOW IT WORKS</a></li>  
+            <li id="about-mobile"><a href="projects/about.html">ABOUT</a></li>
+            <li id="contact-mobile"><a href="projects/contact.html">CONTACT</a></li>
+            
+            <li class="">
+                <a href="projects/projects.html">PROJECTS</a>
+               <!-- <div class="dropdown-content"> 
+                    <div class="dropdown-right">  
+                        <a href="how-it-works.html"><div class="image-overlay">
+                            <h1>Far more than beautiful projects.</h1>
+                        </div>
+                        <img src="../assets/navbar/nav-drop.png" alt="Project Image" id="img"/>
+                        <br> <br>
+                        <p id="project-p">How it Works?</p>
+                        <p>Discover the power of the design.</p></a>
+                    </div>
+                    <div class="dropdown-left">
+                        <a href="interior.html"><div class="item1"><p>INTERIOR</p></div></a>
+                        <a href="retail.html"><div class="item2"><p>RETAIL</p></div></a>
+                        <a href="restaurants.html"><div class="item3"><p>RESTAURANTS</p></div></a>
+                       <a href="design-project.html"><div class="item4"><p>DESIGN PROJECT</p></div></a>
+                    </div>
+                </div>-->
+            </li>
+              
+        </ul> <div class="logo">
+            <a href="../index.html"><img src="../assets/navbar/logo-studio-nav.png" alt="Logo"></a>
+        </div>
+       
+        <ul class="nav-links" id="nav-links">
+         
+            <li><a href="projects/about.html">ABOUT</a></li>
+            <li><a href="projects/contact.html">CONTACT</a></li>
+           <li> 
+           
+            <a href="https://www.instagram.com/studio_forja/"><i class="bi bi-instagram"></i></a>
+            <a href="https://wa.link/pbqwt4"><i class="bi bi-whatsapp"></i></a>
+      
+    </li>
+        </ul>
+           <div class="hamburger" id="hamburger">
+            &#9776;
+        </div>
+    </nav>
+    <script></script>
+    <script>
+        
+        const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+
+hamburger.addEventListener('click', function () {
+    hamburger.classList.toggle('rotate'); // Transforma em X
+    navLinks.classList.toggle('active'); // Exibe/esconde o menu
+});
+
+window.addEventListener('click', function(event) {
+    if (!hamburger.contains(event.target) && !navLinks.contains(event.target) && !isClosing) {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('rotate'); // Remove a rotação se o menu fechar
+        overlay.classList.remove('visible'); // Remove a classe visível da overlay
+    }
+});
+
+// Adiciona um evento à overlay que fecha o menu ao clicar nela
+overlay.addEventListener('click', function() {
+    navLinks.classList.remove('active');
+    hamburger.classList.remove('rotate'); // Remove a rotação se o menu fechar
+    overlay.classList.remove('visible'); // Remove a classe visível da overlay
+});
+
+    </script>
+   
+     <script>
+         const dropdown = document.querySelector('.dropdown');
+         const dropdownContent = dropdown.querySelector('.dropdown-content');
+     
+         dropdown.addEventListener('mouseenter', () => {
+             dropdownContent.style.display = 'flex'; // Exibe o dropdown
+             setTimeout(() => {
+                 dropdownContent.style.opacity = '1'; // Faz o dropdown aparecer
+             }, 10); // Pequeno atraso para permitir a transição
+         });
+     
+         dropdown.addEventListener('mouseleave', () => {
+             dropdownContent.style.opacity = '0'; // Esconde o dropdown
+             setTimeout(() => {
+                 dropdownContent.style.display = 'none'; // Remove o dropdown após a transição
+             }, 300); // Espera o tempo da transição antes de remover
+         });
+     </script>
+    <script>
+     const dropdown2 = document.querySelector('.dropdown');
+     const navbar = document.querySelector('.navbar');
+ 
+     // Função para verificar se o dispositivo é móvel
+     function isMobile() {
+         return window.innerWidth <= 768; // Ajuste o valor conforme necessário
+     }
+ 
+     // Adiciona os eventos de mouse somente se não for um dispositivo móvel
+     if (!isMobile()) {
+         dropdown2.addEventListener('mouseenter', () => {
+             navbar.classList.add('hovered');
+         });
+         
+         dropdown2.addEventListener('mouseleave', () => {
+             navbar.classList.remove('hovered');
+         });
+     }
+ </script>
+ <script>
+     let lastScrollPosition = 0;
+     const navbarscroll = document.querySelector('.navbar');
+ 
+     window.addEventListener('scroll', function () {
+         const currentScrollPosition = window.pageYOffset;
+ 
+         // Mostra a navbar quando o usuário rolar para cima
+         if (currentScrollPosition < lastScrollPosition || currentScrollPosition === 0) {
+             navbarscroll.style.transform = 'translateY(0)';
+             navbarscroll.style.transition = 'transform 0.3s ease'; 
+         } else {
+             // Esconde a navbar quando o usuário rolar para baixo
+             navbarscroll.style.transform = 'translateY(-100%)';
+             navbarscroll.style.transition = 'transform 0.3s ease'; 
+         }
+ 
+         // Atualiza a última posição de rolagem
+         lastScrollPosition = currentScrollPosition;
+     });
+ </script>
+ <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+
+                // Inicializa os scripts após carregar a navbar
+                const hamburger = document.getElementById('hamburger');
+                const navLinks = document.getElementById('nav-links');
+                const navbar = document.querySelector('.navbar'); 
+                const dropdown2 = document.querySelector('.dropdown');
+                const overlay = document.getElementById('overlay'); // Seleciona a overlay
+
+                let isClosing = false;
+
+                hamburger.addEventListener('click', function() {
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.add('closing');
+                        isClosing = true;
+
+                        setTimeout(function() {
+                            if (isClosing) {
+                                navLinks.classList.remove('active', 'closing');
+                                navLinks.style.visibility = 'hidden';
+                                hamburger.innerHTML = '&#9776;';
+                                hamburger.classList.remove('rotate');
+                                isClosing = false;
+                            }
+                        }, 300);
+                    } else {
+                        navLinks.style.visibility = 'visible';
+                        navLinks.classList.add('active');
+                        hamburger.innerHTML = '&times;';
+                        hamburger.classList.add('rotate');
+                    }
+                });
+
+                function isMobile() {
+                    return window.innerWidth <= 768;
+                }
+
+           // Efeito de hover no dropdown e exibição da overlay
+if (dropdown2 && navbar && !isMobile()) {
+    dropdown2.addEventListener('mouseenter', () => {
+        navbar.classList.add('hovered');
+        overlay.classList.add('visible'); // Mostra a overlay e a torna flex
+        overlay.style.display = 'flex'; // Garante que a overlay seja flex
+    });
+
+    dropdown2.addEventListener('mouseleave', () => {
+        navbar.classList.remove('hovered');
+        overlay.classList.remove('visible'); // Oculta a overlay
+        overlay.style.display = 'none'; // Esconde a overlay
+    });
+}
+
+
+                // Navbar fixa ao rolar para cima
+           // Navbar e faixa informativa fixas ao rolar para cima
+let lastScrollPosition = 0;
+let isFixed = false;
+
+// Seleciona a faixa informativa
+const faixaInformativa = document.querySelector('.faixa-informativa');
+
+window.addEventListener('scroll', function () {
+    const currentScrollPosition = window.pageYOffset;
+
+    if (currentScrollPosition < lastScrollPosition) {
+        // Mostra e fixa a faixa informativa e a navbar ao rolar para cima
+        faixaInformativa.style.position = 'fixed';
+        faixaInformativa.style.top = '0';
+        faixaInformativa.style.width = '110%';
+        faixaInformativa.style.transform = 'translateY(0)';
+        faixaInformativa.style.transition = 'transform 0.3s ease';
+
+        navbar.style.position = 'fixed';
+        navbar.style.top = '30px'; // Ajuste de 30px para a navbar ficar logo abaixo da faixa
+        navbar.style.width = '110%';
+        navbar.style.transform = 'translateY(0)';
+        navbar.style.transition = 'transform 0.3s ease';
+        isFixed = true;
+    } else if (currentScrollPosition > lastScrollPosition && isFixed) {
+        // Esconde a faixa informativa e a navbar ao rolar para baixo
+        faixaInformativa.style.transform = 'translateY(-100%)';
+        navbar.style.transform = 'translateY(-100%)';
+        isFixed = false;
+    }
+
+    lastScrollPosition = currentScrollPosition;
+});
+
+            })
+            .catch(error => console.error('Erro ao carregar a navbar:', error));
+    });
+    
+    
+    
+</script>
+ <script>
+     document.addEventListener("DOMContentLoaded", function() {
+         fetch('navbar.html')
+             .then(response => response.text())
+             .then(data => {
+                 document.getElementById('navbar-container').innerHTML = data;
+ 
+                 // Inicializa os scripts após carregar a navbar
+                 const hamburger = document.getElementById('hamburger');
+                 const navLinks = document.getElementById('nav-links');
+                 const navbar = document.querySelector('.navbar'); 
+                 const dropdown2 = document.querySelector('.dropdown');
+                 const overlay = document.getElementById('overlay'); // Seleciona a overlay
+ 
+                 let isClosing = false;
+ 
+                 hamburger.addEventListener('click', function() {
+                     if (navLinks.classList.contains('active')) {
+                         navLinks.classList.add('closing');
+                         isClosing = true;
+ 
+                         setTimeout(function() {
+                             if (isClosing) {
+                                 navLinks.classList.remove('active', 'closing');
+                                 navLinks.style.visibility = 'hidden';
+                                 hamburger.innerHTML = '&#9776;';
+                                 hamburger.classList.remove('rotate');
+                                 isClosing = false;
+                             }
+                         }, 300);
+                     } else {
+                         navLinks.style.visibility = 'visible';
+                         navLinks.classList.add('active');
+                         hamburger.innerHTML = '&times;';
+                         hamburger.classList.add('rotate');
+                     }
+                 });
+ 
+                 function isMobile() {
+                     return window.innerWidth <= 768;
+                 }
+ 
+            // Efeito de hover no dropdown e exibição da overlay
+ if (dropdown2 && navbar && !isMobile()) {
+     dropdown2.addEventListener('mouseenter', () => {
+         navbar.classList.add('hovered');
+         overlay.classList.add('visible'); // Mostra a overlay e a torna flex
+         overlay.style.display = 'flex'; // Garante que a overlay seja flex
+     });
+ 
+     dropdown2.addEventListener('mouseleave', () => {
+         navbar.classList.remove('hovered');
+         overlay.classList.remove('visible'); // Oculta a overlay
+         overlay.style.display = 'none'; // Esconde a overlay
+     });
+ }
+ 
+ 
+                 // Navbar fixa ao rolar para cima
+            // Navbar e faixa informativa fixas ao rolar para cima
+ let lastScrollPosition = 0;
+ let isFixed = false;
+ 
+ // Seleciona a faixa informativa
+ const faixaInformativa = document.querySelector('.faixa-informativa');
+ 
+ window.addEventListener('scroll', function () {
+     const currentScrollPosition = window.pageYOffset;
+ 
+     if (currentScrollPosition < lastScrollPosition) {
+         // Mostra e fixa a faixa informativa e a navbar ao rolar para cima
+         faixaInformativa.style.position = 'fixed';
+         faixaInformativa.style.top = '0';
+         faixaInformativa.style.width = '110%';
+         faixaInformativa.style.transform = 'translateY(0)';
+         faixaInformativa.style.transition = 'transform 0.3s ease';
+ 
+         navbar.style.position = 'fixed';
+         navbar.style.top = '30px'; // Ajuste de 30px para a navbar ficar logo abaixo da faixa
+         navbar.style.width = '110%';
+         navbar.style.transform = 'translateY(0)';
+         navbar.style.transition = 'transform 0.3s ease';
+         isFixed = true;
+     } else if (currentScrollPosition > lastScrollPosition && isFixed) {
+         // Esconde a faixa informativa e a navbar ao rolar para baixo
+         faixaInformativa.style.transform = 'translateY(-100%)';
+         navbar.style.transform = 'translateY(-100%)';
+         isFixed = false;
+     }
+ 
+     lastScrollPosition = currentScrollPosition;
+ });
+ 
+             })
+             .catch(error => console.error('Erro ao carregar a navbar:', error));
+     });
+     
+     
+     
+ </script>
+ 
+
+<div class="video-container">
+    <video autoplay muted loop class="background-video">
+        <source src="assets/intro.webm" type="video/webm">
+        Your browser does not support the video tag.
+    </video>
+    <div class="video-overlay">
+        <div class="video-overlay-content">
+           
+            <br>
+           
+        </div>
+    </div>
+</div>
+
+<script>document.addEventListener("DOMContentLoaded", function () {
+    const animatedElements = document.querySelectorAll(".animate-on-load");
+    const videoContainer = document.querySelector(".video-container");
+
+    // Animação de entrada
+    setTimeout(() => {
+        animatedElements.forEach((element) => {
+            element.classList.add("visible");
+        });
+    }, 200); // Pequeno atraso para a animação
+
+    // Parallax no scroll
+    window.addEventListener("scroll", function () {
+        const scrollPosition = window.scrollY;
+        const containerOffsetTop = videoContainer.offsetTop;
+        const containerHeight = videoContainer.offsetHeight;
+
+        if (scrollPosition > containerOffsetTop && scrollPosition < containerOffsetTop + containerHeight) {
+            videoContainer.classList.add("parallax-active");
+        } else {
+            videoContainer.classList.remove("parallax-active");
+        }
+    });
+});
+</script>
+
+
+
+<div class="icons-container">
+    <div class="icons-container-tittle"> <h1 class="animate-on-load">Transforming Ideas into Reality</h1><br>
+        <br>
+        <p class="animate-on-load">At <span>Studio Forja</span>, we specialize in creating, designing, and building projects that effectively and creatively express our clients' ideas, turning them into stunning realities. Through expertise in concept design, 3D projects, and detailed renders, <span>we bring visions to life</span> with precision and attention to detail.</p></div>
+    <div class="icons-container-boxes">
+    <div class="icon-box">
+        <i class="bi bi-briefcase"></i>
+        <h1>CONCEPT
+            DEVELOPMENT</h1>
+        <p>From mood boards to
+            material selection, we
+            shape a cohesive direction
+            that sets the foundation for
+            the entire design.</p>
+    </div>
+    <div class="icon-box">
+        <i class="bi bi-people"></i>
+        <h1>3D DESIGN</h1>
+        <p>Through intricate 3D
+            renderings, our design
+            professionals create
+            visualizations that capture
+            the final outcome with
+            clarity and realism.
+            </p>
+    </div>
+    <div class="icon-box">
+        <i class="bi bi-palette"></i>
+        <h1>TECHNICAL
+            PROJECT
+            </h1>
+        <p>We provide a detailed
+            technical project that
+            specifies each element
+            necessary for an accurate
+            and seamless execution.
+            </p>
+    </div>
+    <div class="icon-box">
+        <i class="bi bi-lightbulb"></i>
+        <h1>QUALITY ASSURANCE</h1>
+        <p>We are here at every step,
+            maintaining the integrity
+            of the design and
+            guaranteeing excellence
+            down to the smallest
+            detail.
+            </p>
+    </div></div>
+</div>
+<br><br>
+<!-- Banner Imagem -->
+<div class="banner-imagem" id="bannerImagem">
+    <div class="banner-imagem-inner" id="bannerInner">
+      <!-- Itens do Banner -->
+      <div class="banner-imagem-item" style="background-image: url('https://via.placeholder.com/1200x400/ff7b7b');"></div>
+      <div class="banner-imagem-item" style="background-image: url('https://via.placeholder.com/1200x400/7bff7b');"></div>
+      <div class="banner-imagem-item" style="background-image: url('https://via.placeholder.com/1200x400/7b7bff');"></div>
+    </div>
+    <!-- Indicadores -->
+    <div class="indicator-container" id="indicators">
+      <div class="indicator active" data-slide="0"></div>
+      <div class="indicator" data-slide="1"></div>
+      <div class="indicator" data-slide="2"></div>
+    </div>
+  </div>
+  
+  <!-- Scripts -->
+  <script>
+    // Função para mudar as imagens ao arrastar
+    let isDragging = false;
+    let startX, scrollLeft;
+  
+    const bannerImagem = document.getElementById('bannerImagem');
+    const bannerInner = document.getElementById('bannerInner');
+    const indicators = document.querySelectorAll('.indicator');
+    const totalSlides = document.querySelectorAll('.banner-imagem-item').length;
+  
+    bannerImagem.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      startX = e.pageX - bannerImagem.offsetLeft;
+      scrollLeft = bannerInner.scrollLeft;
+      bannerImagem.style.cursor = 'grabbing';
+    });
+  
+    bannerImagem.addEventListener('mouseleave', () => {
+      isDragging = false;
+      bannerImagem.style.cursor = 'grab';
+    });
+  
+    bannerImagem.addEventListener('mouseup', () => {
+      isDragging = false;
+      bannerImagem.style.cursor = 'grab';
+    });
+  
+    bannerImagem.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const x = e.pageX - bannerImagem.offsetLeft;
+      const walk = (x - startX) * 2; // Mover o conteúdo
+      bannerInner.scrollLeft = scrollLeft - walk;
+    });
+  
+    // Função para trocar a imagem com base nos indicadores
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', () => {
+        bannerInner.style.transform = `translateX(-${index * 100}%)`;
+        indicators.forEach(ind => ind.classList.remove('active'));
+        indicator.classList.add('active');
+      });
+    });
+  
+    // Função para detectar a troca de imagem ao arrastar
+    bannerInner.addEventListener('scroll', () => {
+      const index = Math.round(bannerInner.scrollLeft / bannerImagem.offsetWidth);
+      indicators.forEach(ind => ind.classList.remove('active'));
+      indicators[index].classList.add('active');
+  
+      // Ajustando a posição da imagem
+      if (bannerInner.scrollLeft % bannerImagem.offsetWidth === 0) {
+        bannerInner.style.transition = 'transform 0.5s ease'; // Transition suave
+        bannerInner.style.transform = `translateX(-${index * 100}%)`;
+      }
+    });
+  
+    // Garantir que a transição é suave após o scroll
+    bannerInner.addEventListener('transitionend', () => {
+      bannerInner.style.transition = 'transform 0.5s ease';
+    });
+  </script>
+  
+<div id="carouselExampleAutoplaying" class="carousel slide carousel-fade div-slides1" data-bs-ride="carousel" data-bs-interval="2500">
+    <div class="carousel-inner">
+       <a href="projects/mandy.html"> <div class="carousel-item active" style="background-image: url('assets/mandy/mandy\ \(6\).png');"></div></a>
+        <a href="projects/district.html"><div class="carousel-item" style="background-image: url('assets/district/district\ \(1\).png');"></div></a>
+       <a href="projects/juno.html"><div class="carousel-item" style="background-image: url('assets/juno/juno\ \(10\).png');"></div></a> 
+       <a href="projects/limerick.html"><div class="carousel-item" style="background-image: url('assets/limerick/limerick\ \(1\).png');"></div></a> 
+       <a href="projects/loot.html"><div class="carousel-item" style="background-image: url('assets/loot/render-loot.png');"></div></a> 
+       <a href="projects/axis.html"><div class="carousel-item" style="background-image: url('assets/axis/axis.png');"></div></a> 
+    </div>
+
+    <!-- Setas de navegação -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Próximo</span>
+    </button>
+
+    <!-- Indicadores -->
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="5" aria-label="Slide 6"></button>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+<!-- Seção de Clientes
+<div class="clientes-carousel1">
+    <div class="carousel-inner1">
+        <img src="assets/achara/achara (1).png" alt="Cliente 1">
+        <img src="assets/mandy/mandy (5).png" alt="Cliente 2">
+        <img src="assets/charlie/render-charlie (4).png" alt="Cliente 3">
+        <img src="assets/juniors/junior-3d (4).jpg" alt="Cliente 4">
+        <img src="assets/district/district (7).png" alt="Cliente 5">
+        <img src="assets/enscape/enscape (15).png" alt="Cliente 6">
+        <img src="assets/achara/achara (11).png" alt="Cliente 7">
+        <img src="assets/achara/achara (11).png" alt="Cliente 8">
+        <img src="assets/achara/achara (11).png" alt="Cliente 6">
+        <img src="assets/achara/achara (11).png" alt="Cliente 7">
+        <img src="assets/achara/achara (11).png" alt="Cliente 8">
+    </div>
+</div> -->
+
+<script>
+    let index = 0;
+    const images = document.querySelectorAll('.carousel-inner1 img');
+    const totalImages = images.length;
+    const carouselInner = document.querySelector('.carousel-inner1');
+    const imageWidth = images[0].clientWidth + parseInt(window.getComputedStyle(images[0]).marginRight); // Largura da imagem + margem
+
+    // Função que move o carrossel
+    function moveCarousel() {
+        index++;
+        if (index >= totalImages - 1) {  // Se chegou ao final das imagens
+            index = 0;  // Retorna para o início
+        }
+        carouselInner.style.transform = `translateX(-${index * imageWidth}px)`; // Move 3 imagens para a esquerda
+    }
+
+    setInterval(moveCarousel, 2000); // Move o carrossel a cada 2 segundos
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-section about">
+            <h2>Studio Forja</h2>
+            <p>At Studio Forja, we are a creative team dedicated to turning your ideas into reality. Specializing in concept design, 3D projects, and high-quality renderings, our mission is to bring your project to life, capturing its essence and ensuring that every detail is true to your vision.</p>
+        </div>
+
+        <div class="footer-section links">
+            <h2>What we do</h2>
+            <ul>
+                <li><a href="projects/retail.html">Retail</a></li>
+                <li><a href="projects/interior.html">Interior Design</a></li>
+                <li><a href="projects/restaurants.html">Restaurants</a></li>
+             
+                 </ul>
+        </div>
+
+        <div class="footer-section contact">
+            <h2>Contact</h2>
+            <ul>
+                <li><i class="fas fa-map-marker-alt"></i> 202 Holly Rd, Fox-And-Geese, Dublin 12, D12 CX27, Ireland</li>
+                <li><i class="fas fa-phone-alt"></i>+353 83 848 1886</li>
+                <li><i class="fas fa-envelope"></i> caio@forjaworks.com</li>
+            </ul>
+        </div>
+
+        <div class="footer-section social">
+            <h2>Social</h2>
+            <div class="social-icons-footer">
+                <a href="https://www.facebook.com/profile.php?id=61564870636245"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/studio_forja/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/studio-forja/"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-section contact">
+            <h2>Back to top</h2>
+           <br>
+          <a href="#top"> <button id="backToTop">
+            <i class="fas fa-chevron-up"></i>
+        </button></a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 STUDIO FORJA.  | <a href="projects/privacy.html">Privacy Polity</a> | <a href="projects/terms.html">Your info in our site</a></p>
+    </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

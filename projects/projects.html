@@ -73,33 +73,7 @@ body {
 </head>
 
 <body>
-    <video id="intro-video" class="intro-video" autoplay muted>
-        <source src="../assets/studio-intro.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <script>window.addEventListener('load', () => {
-        const video = document.getElementById('intro-video');
-        const today = new Date().toISOString().split('T')[0]; // Obtém a data no formato YYYY-MM-DD
-        const lastShownDate = localStorage.getItem('introVideoLastShown'); // Verifica se o vídeo já foi exibido hoje
-    
-        if (lastShownDate !== today) {
-            // Exibe o vídeo e atualiza a data no localStorage
-            localStorage.setItem('introVideoLastShown', today);
-    
-            // Aguarda 2 segundos antes de esconder o vídeo
-            setTimeout(() => {
-                video.style.opacity = 0; // Torna o vídeo invisível
-                video.style.transition = 'opacity 1s ease-out'; // Transição suave
-                setTimeout(() => {
-                    video.style.display = 'none'; // Remove o vídeo da tela
-                }, 1000); // Espera a transição de 1 segundo antes de aplicar display: none
-            }, 2000); // 2000 milissegundos = 2 segundos
-        } else {
-            // Remove o vídeo imediatamente se já foi exibido
-            video.style.display = 'none';
-        }
-    });
-    </script>
+  
     
        <div id="navbar-container"></div>
        <script src="../js/navbar.js"></script>
